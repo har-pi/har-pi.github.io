@@ -3,7 +3,7 @@
 title: "Web Application Security Checklist for Penetration Testers"
 date: 2025-07-23
 draft: false
-description: Hello
+description: "A systematic checklist covering every phase of a web application security assessment — from recon and auth testing to business logic flaws and reporting."
 tags: ["web-security", "checklist", "penetration-testing", "owasp"]
 categories: ["tutorials"]
 ---

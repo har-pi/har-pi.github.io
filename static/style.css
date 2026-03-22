@@ -1,37 +1,58 @@
-/* ====================================
-   CYBERSECURITY PORTFOLIO THEME
-   Dark with Bright Green Accents
-   ==================================== */
+/* ============================================================
+   HARPI PORTFOLIO — Master Stylesheet
+   Terminal/cyberpunk theme overrides for hugo-theme-terminal v4
+   ============================================================ */
 
-/* ====================================
-   CSS VARIABLES
-   ==================================== */
+
+/* --- Palette (single point of truth) ---
+   Change RGB values here to re-theme the entire site.
+   Both style.css and animate-style.css consume these vars. */
 :root {
-  /* Pallette */
-  --background: #0a0a0a;
-  --card-background: #1a1a1a;
-  --foreground: #cfcfcf;
-  --accent: #00ff00;
-  --accent-dim: #00cc00;
-  --accent-bright: #33ff33;
-  --shadow-color: rgba(0, 255, 0, 0.2);
+  --bg-rgb: 10, 10, 10;
+  --card-bg-rgb: 26, 26, 26;
+  --fg-rgb: 207, 207, 207;
+  --accent-rgb: 0, 255, 0;
+  --accent-dim-rgb: 0, 204, 0;
+  --accent-bright-rgb: 51, 255, 51;
+  --amber-rgb: 255, 176, 0;
+  --amber-dim-rgb: 204, 141, 0;
+  --amber-bright-rgb: 255, 194, 51;
+  --hard-rgb: 255, 51, 51;
+  --insane-rgb: 255, 0, 255;
+
+  /* Derived — auto-generated from RGB values above */
+  --background: rgb(var(--bg-rgb));
+  --card-background: rgb(var(--card-bg-rgb));
+  --foreground: rgb(var(--fg-rgb));
+  --accent: rgb(var(--accent-rgb));
+  --accent-dim: rgb(var(--accent-dim-rgb));
+  --accent-bright: rgb(var(--accent-bright-rgb));
+  --shadow-color: rgba(var(--accent-rgb), 0.2);
+  --accent-amber: rgb(var(--amber-rgb));
+  --accent-amber-dim: rgb(var(--amber-dim-rgb));
+  --accent-amber-bright: rgb(var(--amber-bright-rgb));
+
+  /* Difficulty colors */
+  --difficulty-easy: var(--accent);
+  --difficulty-medium: var(--accent-amber);
+  --difficulty-hard: rgb(var(--hard-rgb));
+  --difficulty-insane: rgb(var(--insane-rgb));
 
   /* Font sizes */
-  --logo-size: 2.0rem;
-  --menu-size: 1.5rem;
-  --post-title-size: 2.0rem;
-  --post-content-size: 1.3rem;
-  --post-tag-size: 0.9rem;
+  --logo-size: 1.6rem;
+  --menu-size: 1.2rem;
+  --post-title-size: 1.8rem;
+  --post-content-size: 1.15rem;
+  --post-tag-size: 0.85rem;
   --post-meta-size: 0.9rem;
-  --read-more-size: 0.7rem;
+  --read-more-size: 0.8rem;
 
   /* Misc */
   --radius: 8px;
 }
 
-/* ====================================
-   BASE STYLES
-   ==================================== */
+
+/* --- Base --- */
 body {
   background-color: var(--background) !important;
   color: var(--foreground) !important;
@@ -45,76 +66,78 @@ body {
   padding: 20px !important;
 }
 
-/* Links */
-/*
-a {
-  color: var(--accent) !important;
-  transition: color 0.3s ease;
-}
-*/
-
 a:hover {
   color: var(--accent-bright) !important;
   text-shadow: 0 0 5px var(--accent);
 }
 
-/* Code blocks */
-/*
-pre {
-  background: var(--card-background) !important;
-  border: 1px solid var(--accent) !important;
-  border-radius: var(--radius) !important;
-  box-shadow: 0 0 10px var(--shadow-color);
-}
-*/
 
-/*
-code {
-  background: rgba(0, 255, 0, 0.1) !important;
-  color: var(--accent) !important;
-  border: 1px solid var(--accent) !important;
-  border-radius: 4px !important;
-}
-*/
-
-/* ====================================
-   HEADER & FOOTER
-   ==================================== */
+/* --- Header & Footer --- */
 .header {
   background: var(--card-background);
-  border: 1px solid rgba(0, 255, 0, 0.3);
+  border: 1px solid rgba(var(--accent-rgb), 0.3);
   border-radius: var(--radius);
   margin-bottom: 1rem;
   padding: 0.5rem;
   box-shadow: 0 0 20px var(--shadow-color);
 }
 
-/*
 .header__inner {
-  display: flex;
-  justify-content: left;
-  align-items: left;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0.5rem 1rem !important;
+  gap: 1rem;
 }
-*/
+
+.header__logo {
+  flex: 0 0 auto !important;
+}
+
+/* Remove theme's repeating-gradient stripe after logo */
+.header__logo::after {
+  display: none !important;
+}
+
+/* Hide mobile menu — always show desktop nav */
+.menu--mobile {
+  display: none !important;
+}
 
 .footer {
   border-top: 2px solid var(--accent);
-  padding-top: 0rem;
-  margin-top: 0rem;
-  justify-content: center;
+  padding-top: 0.5rem;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  position: flex;
   color: var(--accent-dim);
 }
 
-/* ====================================
-   LOGO & NAVIGATION MENU
-   ==================================== */
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
 
-/* Logo with bright orange background */
+.footer__content {
+  text-align: center;
+}
+
+.footer__tagline {
+  font-style: italic;
+  font-size: 0.8rem;
+  color: rgba(var(--accent-rgb), 0.4);
+  margin-top: 0.25rem;
+}
+
+
+/* --- Logo --- */
 .logo {
   background: var(--card-background) !important;
   color: var(--accent-dim) !important;
@@ -132,9 +155,15 @@ code {
 .logo:hover {
   color: var(--accent-bright) !important;
   text-shadow: 0 0 10px var(--accent);
-  transform: scale(1.05);
   transform: translateY(-2px) !important;
   box-shadow: var(--shadow) !important;
+}
+
+.logo::before {
+  content: "⟩";
+  color: var(--accent-amber);
+  margin-right: 0.3rem;
+  text-shadow: 0 0 8px rgba(var(--amber-rgb), 0.5);
 }
 
 .logo::after {
@@ -143,81 +172,83 @@ code {
   animation: blink 1s infinite;
 }
 
-/* Enhanced Circular Navigation Menu */
+
+/* --- Navigation menu (inline with logo) --- */
 .navigation-menu {
   background: transparent !important;
-}
-
-.navigation-menu__inner {
-  background: transparent !important;
-  /*border: 1px solid rgba(0, 255, 0, 0.3) !important;*/
-  /*border-radius: var(--radius) !important;*/
-  padding: none !important;
-  /*font-weight: 500;*/
-  text-transform: capitalize;
-  transition: all 0.4s ease;
-  justify-content: center;
-}
-
-.navigation-menu__inner ul {
-  display: flex !important;
-  list-style: none !important;
-  margin: 2rem 0 !important;
+  margin: 0 !important;
   padding: 0 !important;
-  justify-content: center;
+  flex: 0 0 auto !important;
+}
+
+ul.navigation-menu__inner {
+  display: flex !important;
+  flex-direction: row !important;
+  list-style: none !important;
+  list-style-type: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 0.5rem !important;
+  align-items: center !important;
+}
+
+ul.navigation-menu__inner > li {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.menu--desktop {
+  display: flex !important;
 }
 
 .navigation-menu__inner li a {
   color: var(--accent) !important;
-  background: var(--card-background) !important;
-  padding: 1rem 1.5rem !important;
+  background: transparent !important;
+  padding: 0.75rem 2rem !important;
   border-radius: var(--radius) !important;
-
-  /* Circular shape */
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: all 0.25s ease !important;
   text-decoration: none !important;
-  border: 2px solid rgba(0, 255, 0, 0.3) !important;
-  font-size: var(--menu-size);
-  font-weight: 1000;
-  min-width: 200px;
-  text-align: center;
+  border: 2px solid rgba(var(--accent-rgb), 0.35) !important;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
   display: inline-block;
 }
 
-/* Circular glow effect on hover */
 .navigation-menu__inner li a:hover {
+  background: rgba(var(--accent-rgb), 0.12) !important;
+  border-color: var(--accent-bright) !important;
+  color: #fff !important;
+  box-shadow:
+    0 0 12px rgba(var(--accent-rgb), 0.7),
+    0 0 30px rgba(var(--accent-rgb), 0.35),
+    inset 0 0 8px rgba(var(--accent-rgb), 0.08);
+  text-shadow: 0 0 8px rgba(var(--accent-rgb), 0.8);
+  transform: translateY(-1px);
+}
+
+.navigation-menu__inner li a.active {
   background: var(--accent) !important;
   color: var(--background) !important;
   border-color: var(--accent-bright) !important;
-  transform: translateY(-3px) scale(1.05);
-  box-shadow:
-    0 0 20px rgba(0, 255, 0, 0.6),
-    0 0 40px rgba(0, 255, 0, 0.4),
-    0 0 60px rgba(0, 255, 0, 0.2);
-  animation: pulse-glow 1.5s infinite;
+  box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.4), 0 0 20px rgba(var(--accent-rgb), 0.15);
+  text-shadow: none !important;
 }
 
-/* Glowing pulse animation */
-@keyframes pulse-glow {
-
-  0%,
-  100% {
-    box-shadow:
-      0 0 20px rgba(0, 255, 0, 0.6),
-      0 0 40px rgba(0, 255, 0, 0.4), navigation-menu 0 0 60px rgba(0, 255, 0, 0.2);
-  }
-
-  50% {
-    box-shadow:
-      0 0 30px rgba(0, 255, 0, 0.8),
-      0 0 60px rgba(0, 255, 0, 0.6),
-      0 0 90px rgba(0, 255, 0, 0.4);
-  }
+.menu--mobile .menu__dropdown li a.active {
+  color: var(--background) !important;
+  background: var(--accent) !important;
 }
 
-/* ====================================
-   POSTS SECTION
-   ==================================== */
+/* Remove theme's pipe separators between menu items */
+.navigation-menu__inner li + li::before {
+  content: none !important;
+}
+
+
+/* --- Posts grid --- */
 .posts {
   display: grid !important;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
@@ -227,10 +258,10 @@ code {
 
 .post.on-list {
   background: var(--card-background);
-  border: 2px solid rgba(0, 255, 0, 0.2);
+  border: 1px solid rgba(var(--accent-rgb), 0.15);
   border-radius: var(--radius);
   padding: 1.5rem;
-  box-shadow: 0 0 15px var(--shadow-color);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -248,7 +279,7 @@ code {
 
 .post.on-list:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 25px rgba(0, 255, 0, 0.3);
+  box-shadow: 0 5px 25px rgba(var(--accent-rgb), 0.3);
   border-color: var(--accent-bright);
   animation: glow 2s infinite;
 }
@@ -272,28 +303,35 @@ code {
   text-shadow: 0 0 10px var(--accent);
 }
 
-/*
-.post-title::after {
-  content: "  _";
-  color: var(--accent);
-  animation: blink 1s infinite;
-}
-*/
-
 /* Post metadata */
 .post-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
   color: var(--accent-dim);
   font-size: var(--post-meta-size);
   margin-bottom: 1rem;
-  padding: 0.5rem;
-  background: rgba(0, 255, 0, 0.1);
-  border-radius: var(--radius);
-  border-left: 4px solid var(--accent);
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  border-left: none;
 }
 
 .post-date,
 .post-author {
   color: var(--accent-dim);
+}
+
+/* Hide theme's :: separators in post-meta */
+.post-meta .post-date::before,
+.post-meta .post-author::before,
+.post-meta span::before,
+.post-meta .difficulty-badge::before,
+.post-meta .platform-badge::before,
+.post-meta .reading-time::before {
+  content: none !important;
+  display: none !important;
 }
 
 /* Post content */
@@ -311,7 +349,7 @@ code {
 
 .post-tags a {
   background: var(--background);
-  color: #ff0000 !important;
+  color: var(--accent) !important;
   padding: 0.3rem 0.6rem;
   border-radius: var(--radius);
   text-decoration: none;
@@ -346,17 +384,26 @@ code {
   transform: translateY(-2px);
 }
 
-/* ====================================
-   INDEX/WELCOME SECTION
-   ==================================== */
+
+/* --- Index / welcome section --- */
 .index-content {
   background: var(--card-background);
-  border: 2px solid rgba(0, 255, 0, 0.3);
+  border: 2px solid rgba(var(--accent-rgb), 0.3);
   border-radius: var(--radius);
-  padding: 2.5rem 2rem;
-  margin-bottom: 2.5rem;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
   box-shadow: 0 0 20px var(--shadow-color);
-  /*text-align: center;*/
+}
+
+.index-content h1.section-title {
+  color: var(--accent) !important;
+  font-size: 2.2rem !important;
+  font-weight: 700 !important;
+  text-shadow: 0 0 15px rgba(var(--accent-rgb), 0.5);
+  margin-bottom: 1.2rem !important;
+  margin-top: 0.5rem !important;
+  text-align: center;
+  letter-spacing: 0.04em;
 }
 
 .index-content h1 {
@@ -368,9 +415,12 @@ code {
   text-align: center;
 }
 
-.index-content h1::before {
-  content: "🔒 ";
-  color: var(--accent);
+.index-content h2 {
+  color: var(--accent) !important;
+  font-size: 1.3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 0 6px rgba(var(--accent-rgb), 0.3);
 }
 
 .index-content p {
@@ -380,45 +430,568 @@ code {
 }
 
 
-/* ====================================
-   ANIMATIONS
-   ==================================== */
+/* --- Inner page content --- */
+
+/* Section heading — e.g. "~/blog", "~/research" */
+.content > h1:first-child,
+.post-single h1.post-title {
+  position: relative;
+  color: var(--accent) !important;
+  text-shadow: 0 0 8px rgba(var(--accent-rgb), 0.4);
+  margin-bottom: 1.5rem;
+}
+
+.post > .post-content {
+  margin-top: 1.5rem;
+}
+
+.post > .post-content h2,
+.post > .post-content h3 {
+  color: var(--accent) !important;
+  text-shadow: 0 0 6px rgba(var(--accent-rgb), 0.3);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.post > .post-content h2 {
+  font-size: 1.4rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid rgba(var(--accent-rgb), 0.15);
+}
+
+.post > .post-content h3 {
+  font-size: 1.15rem;
+}
+
+/* Table of Contents */
+.table-of-contents h2 {
+  color: var(--accent) !important;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.table-of-contents a {
+  color: var(--accent) !important;
+  text-decoration: none;
+}
+
+.table-of-contents a:hover {
+  color: var(--accent-bright) !important;
+  text-shadow: 0 0 5px var(--accent);
+}
+
+/* Tag pills (post + taxonomy pages) */
+.post-tags a,
+.terms-tags a {
+  border: 1px solid rgba(var(--accent-rgb), 0.4) !important;
+  background: rgba(var(--accent-rgb), 0.06) !important;
+  color: var(--accent) !important;
+  font-size: 0.78rem !important;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease;
+}
+
+.post-tags a:hover,
+.terms-tags a:hover {
+  background: rgba(var(--accent-rgb), 0.2) !important;
+  box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.3);
+  color: var(--accent-bright) !important;
+}
+
+/* Blockquotes / epigraphs */
+.index-content blockquote,
+.post-content blockquote {
+  background: none !important;
+  border: none !important;
+  padding: 0.5rem 0 !important;
+  margin: 0.5rem 0 1.2rem !important;
+  text-align: center;
+  font-style: italic;
+  color: rgba(var(--fg-rgb), 0.6) !important;
+  font-size: 0.9rem;
+  position: relative;
+}
+
+.index-content blockquote::before,
+.post-content blockquote::before {
+  content: none !important;
+  display: none !important;
+}
+
+.index-content blockquote p,
+.post-content blockquote p {
+  color: rgba(var(--fg-rgb), 0.6) !important;
+  font-style: italic;
+}
+
+/* HR separator */
+.index-content hr,
+.post-content hr {
+  border: none;
+  border-top: 1px solid rgba(var(--accent-rgb), 0.15);
+  margin: 1.5rem 0;
+}
+
+/* Lists */
+.index-content ul li,
+.post-content ul li {
+  line-height: 1.7;
+  margin-bottom: 0.3rem;
+}
+
+/* Closing quote emphasis */
+.index-content > p:last-of-type em,
+.post-content > p:last-of-type em {
+  color: rgba(var(--fg-rgb), 0.5);
+  font-size: 0.9rem;
+}
+
+/* Tables */
+.index-content table,
+.post-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+
+.index-content th,
+.post-content th {
+  color: var(--accent);
+  border-bottom: 1px solid rgba(var(--accent-rgb), 0.4);
+  text-align: left;
+  padding: 0.4rem 0.6rem;
+}
+
+.index-content td,
+.post-content td {
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid rgba(var(--accent-rgb), 0.1);
+  color: var(--foreground);
+}
+
+
+/* --- Badges (shared by post-meta + HTB card shortcode) ---
+   Reusable color-coded pill pattern for difficulty, platform, etc. */
+.difficulty-badge,
+.htb-tag {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.difficulty-badge {
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.htb-difficulty {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* Color variants — used by both .difficulty-* and .htb-* */
+.difficulty-easy,
+.htb-easy {
+  color: var(--difficulty-easy);
+  border: 1px solid var(--difficulty-easy);
+  background: rgba(var(--accent-rgb), 0.08);
+}
+
+.difficulty-medium,
+.htb-medium {
+  color: var(--difficulty-medium);
+  border: 1px solid var(--difficulty-medium);
+  background: rgba(var(--amber-rgb), 0.08);
+}
+
+.difficulty-hard,
+.htb-hard {
+  color: var(--difficulty-hard);
+  border: 1px solid var(--difficulty-hard);
+  background: rgba(var(--hard-rgb), 0.08);
+}
+
+.difficulty-insane,
+.htb-insane {
+  color: var(--difficulty-insane);
+  border: 1px solid var(--difficulty-insane);
+  background: rgba(var(--insane-rgb), 0.08);
+}
+
+/* Neutral badges */
+.platform-badge,
+.htb-os {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--foreground);
+  border: 1px solid rgba(var(--fg-rgb), 0.25);
+  background: rgba(var(--fg-rgb), 0.06);
+}
+
+.reading-time {
+  font-size: 0.78rem;
+  color: rgba(var(--fg-rgb), 0.45);
+  font-style: italic;
+}
+
+
+/* --- HTB card shortcode (single post) --- */
+.htb-card {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(var(--accent-rgb), 0.15);
+  border-radius: var(--radius);
+  background: rgba(var(--accent-rgb), 0.03);
+}
+
+.htb-points {
+  color: var(--accent-amber);
+  border: 1px solid rgba(var(--amber-rgb), 0.3);
+  background: rgba(var(--amber-rgb), 0.06);
+}
+
+.htb-date {
+  color: rgba(var(--fg-rgb), 0.5);
+  border: 1px solid rgba(var(--fg-rgb), 0.15);
+  background: rgba(var(--fg-rgb), 0.04);
+  font-style: italic;
+}
+
+
+/* --- Operative Dossier (About page) --- */
+.dossier {
+  margin: 0;
+  background: var(--card-background);
+  border: 2px solid rgba(var(--accent-rgb), 0.35);
+  border-radius: var(--radius);
+  box-shadow:
+    0 0 40px rgba(var(--accent-rgb), 0.1),
+    inset 0 0 80px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Scanline overlay */
+.dossier::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.05) 2px,
+    rgba(0, 0, 0, 0.05) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Classification bars (top + bottom) */
+.dossier-classbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 1.5rem;
+  background: rgba(var(--amber-rgb), 0.06);
+  border-bottom: 1px solid rgba(var(--amber-rgb), 0.2);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-amber-dim);
+}
+
+.dossier-classbar--bottom {
+  border-bottom: none;
+  border-top: 1px solid rgba(var(--amber-rgb), 0.2);
+}
+
+/* Header */
+.dossier-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: rgba(var(--accent-rgb), 0.04);
+  border-bottom: 2px solid rgba(var(--accent-rgb), 0.25);
+}
+
+.dossier-header__left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.dossier-header__title {
+  color: var(--accent);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-shadow: 0 0 12px rgba(var(--accent-rgb), 0.4);
+}
+
+.dossier-header__sub {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.dossier-header__badge {
+  color: var(--accent-amber);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 2px solid var(--accent-amber);
+  padding: 0.3rem 0.8rem;
+  border-radius: 3px;
+  background: rgba(var(--amber-rgb), 0.08);
+  text-shadow: 0 0 6px rgba(var(--amber-rgb), 0.3);
+}
+
+/* Profile section */
+.dossier-profile {
+  display: flex;
+  gap: 2rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(var(--accent-rgb), 0.15);
+}
+
+.dossier-profile__image-wrap {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.dossier-profile__image {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.35), 0 0 40px rgba(var(--accent-rgb), 0.1);
+  background: #000;
+}
+
+.dossier-profile__image-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.1rem 0.4rem;
+  border-radius: 2px;
+}
+
+.dossier-profile__stats {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+.dossier-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.dossier-stat__label {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  min-width: 110px;
+  flex-shrink: 0;
+}
+
+.dossier-stat__value {
+  color: var(--accent);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.dossier-stat__value--large {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 8px rgba(var(--accent-rgb), 0.3);
+}
+
+/* Sections (shared container for certs, caps, specs) */
+.dossier-section {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(var(--accent-rgb), 0.12);
+}
+
+.dossier-section__title {
+  color: var(--accent-amber) !important;
+  font-size: 0.9rem !important;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 1rem 0 !important;
+  padding-bottom: 0.4rem !important;
+  border-bottom: 1px solid rgba(var(--amber-rgb), 0.15) !important;
+  text-shadow: 0 0 6px rgba(var(--amber-rgb), 0.2) !important;
+}
+
+.dossier-section__title::before { content: "\25E4 "; }
+.dossier-section__title::after  { content: " \25E2"; }
+
+/* Certification cards */
+.dossier-certs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+}
+
+.dossier-cert-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid rgba(var(--amber-rgb), 0.2);
+  border-radius: 4px;
+  background: rgba(var(--amber-rgb), 0.03);
+}
+
+.dossier-cert-card__code {
+  color: var(--accent-amber);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  min-width: 50px;
+  padding: 0.15rem 0.4rem;
+  border: 1px solid var(--accent-amber);
+  border-radius: 3px;
+  text-align: center;
+  background: rgba(var(--amber-rgb), 0.06);
+}
+
+.dossier-cert-card__name {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+}
+
+/* Capabilities with progress bars */
+.dossier-capabilities {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.dossier-cap {
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(var(--accent-rgb), 0.15);
+  border-radius: 4px;
+  background: rgba(var(--accent-rgb), 0.02);
+}
+
+.dossier-cap:hover {
+  border-color: rgba(var(--accent-rgb), 0.3);
+  box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.1);
+}
+
+.dossier-cap__header {
+  display: block;
+  color: var(--accent);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.dossier-cap__desc {
+  display: block;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+.dossier-cap__bar {
+  height: 4px;
+  background: rgba(var(--accent-rgb), 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.dossier-cap__fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  box-shadow: 0 0 6px rgba(var(--accent-rgb), 0.4);
+}
+
+/* Specializations */
+.dossier-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.dossier-spec {
+  padding: 0.35rem 0.85rem;
+  border: 1px solid rgba(var(--accent-rgb), 0.2);
+  border-radius: 3px;
+  background: rgba(var(--accent-rgb), 0.04);
+  color: var(--accent);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: all 0.2s ease;
+}
+
+.dossier-spec:hover {
+  border-color: var(--accent);
+  background: rgba(var(--accent-rgb), 0.08);
+  box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.15);
+}
+
+
+/* --- Animations --- */
 @keyframes glow {
-
-  0%,
-  100% {
-    box-shadow: 0 0 5px var(--shadow-color);
-  }
-
-  50% {
-    box-shadow: 0 0 20px var(--shadow-color);
-  }
+  0%, 100% { box-shadow: 0 0 5px var(--shadow-color); }
+  50% { box-shadow: 0 0 20px var(--shadow-color); }
 }
 
 @keyframes blink {
-
-  0%,
-  50% {
-    opacity: 1;
-  }
-
-  51%,
-  100% {
-    opacity: 0;
-  }
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
-/* ====================================
-   RESPONSIVE DESIGN
-   ==================================== */
+
+/* --- Responsive --- */
 @media (max-width: 768px) {
-  .navigation-menu__inner ul {
-    flex-direction: column;
-    gap: 1rem !important;
+  .header__inner {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
   }
 
-  .navigation-menu__inner li a {
-    min-width: 200px;
+  .navigation-menu__inner {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .posts {
@@ -429,5 +1002,25 @@ code {
   .post.on-list {
     padding: 1rem;
   }
+}
 
+@media (max-width: 650px) {
+  .dossier-profile {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dossier-profile__stats {
+    align-items: center;
+  }
+
+  .dossier-stat {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+    text-align: center;
+  }
+
+  .dossier-stat__label { min-width: unset; }
+  .dossier-certs-grid { grid-template-columns: 1fr; }
 }

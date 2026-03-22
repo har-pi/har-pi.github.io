@@ -1,18 +1,15 @@
 {{ define "main" }}
 
 {{ if .IsHome }}
-<!-- TODO remove as many as possible-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-<link rel="stylesheet" href="css/slides.css" name="main-styles">
-<link rel="stylesheet" href="css/animate-style.css">
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
-  integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-
-<body class="{{ if .IsHome }}homepage {{ end }}slides fast animated"></body>
+<link rel="stylesheet" href="{{ "css/slides.css" | relURL }}" name="main-styles">
+<link rel="stylesheet" href="{{ "css/animate-style.css" | relURL }}">
+<style>.container{display:block!important}</style>
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>document.body.className += " homepage slides fast animated";</script>
+
 
 <div id="pattern"></div>
 <div class="shadow_corner" id="top_left"></div>
@@ -23,30 +20,48 @@
   <div class="overlay"></div>
   <div class="item-title">
     <div id="message"></div>
+    <div class="landing-nav animated fadeInDown">
+      <a href="{{ "blog/" | relURL }}" class="landing-nav__link">⚡ Blog</a>
+      <a href="{{ "research/" | relURL }}" class="landing-nav__link">☢ Research</a>
+      <a href="{{ "about/" | relURL }}" class="landing-nav__link">☣ About</a>
+    </div>
     <div class="link-bottom animated fadeInDown">
-      <div class="link-bottom">
-        <a class="link-icon" href="https://github.com/harpi/" target="_blank"><i class="link-icon fa fa-github"
-            aria-hidden="true"></i></a>
-        <a class="link-icon" href="https://gitlab.com/harpi/" target="_blank"><i class="link-icon fa fa-gitlab"
-            aria-hidden="true"></i></a>
-        <a class="link-icon" href="https://linkedin.com/in/harpi/" target="_blank"><i class="link-icon fa fa-linkedin"
-            aria-hidden="true"></i></a>
-        <a class="link-icon" href="file://./gpg" target="_blank"><i class="link-icon fa fa-key"
-            aria-hidden="true"></i></a>
-        <a href="mailto:harrypantazis@radicallyopensecurity.com?subject=From site" class='symbol' title='circleemail'><i
-            class="link-icon fa fa-envelope" aria-hidden="true"></i></a>
-      </div>
+      <a class="link-icon" href="https://github.com/har-pi/" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+      <a class="link-icon" href="https://gitlab.com/harpi/" target="_blank"><i class="fa fa-gitlab" aria-hidden="true"></i></a>
+      <a class="link-icon" href="https://app.hackthebox.com/profile/harpi" target="_blank"><i class="fa fa-cube" aria-hidden="true"></i></a>
+      <a class="link-icon" href="https://linkedin.com/in/harpi/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+      <a class="link-icon" href="mailto:harrypantazis@radicallyopensecurity.com?subject=From site"><i class="fa fa-envelope" aria-hidden="true"></i></a>
     </div>
   </div>
 </div>
 
 <div class="fullscreen-bg">
-  <video playsinline autoplay muted loop poster="video/current/bg.jpg" id="bgvid">
-    <source src="video/current/bg.webm" type="video/webm">
-    <source src="video/current/bg.mp4" type="video/mp4">
-    <source src="video/current/bg.ogv" type="video/ogg">
+  <video playsinline muted loop preload="none" poster="{{ "video/current/bg.jpg" | relURL }}" id="bgvid"
+    data-webm="{{ "video/current/bg.webm" | relURL }}"
+    data-mp4="{{ "video/current/bg.mp4" | relURL }}">
   </video>
 </div>
+<script>
+(function () {
+  function loadBgVideo() {
+    var v = document.getElementById('bgvid');
+    if (!v) return;
+    [['data-webm','video/webm'],['data-mp4','video/mp4']].forEach(function(s){
+      var el = document.createElement('source');
+      el.src = v.getAttribute(s[0]);
+      el.type = s[1];
+      v.appendChild(el);
+    });
+    v.load();
+    v.play().catch(function(){});
+  }
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadBgVideo, { timeout: 1500 });
+  } else {
+    setTimeout(loadBgVideo, 800);
+  }
+})();
+</script>
 
 <!-- Preloader -->
 <div class="loadingIcon">
@@ -71,9 +86,8 @@
 </svg>
 
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
-<script async src="js/main.js"></script>
+<script async src="{{ "js/main.js" | relURL }}"></script>
 <!--[if lt IE 10]><script type="text/javascript" src="js/placeholder.js"></script><![endif]-->
-</body>
 
 {{ else }}
 

@@ -1,17 +1,13 @@
-
 ---
-title: "Sample HTB Machine - Walkthrough"
-description: hello
-summary: hello
+title: "HTB: Sample Machine"
+description: "Template for HackTheBox machine writeups."
+summary: "Template for HackTheBox machine writeups."
 date: 2025-07-23
-draft: false
+draft: true
 tags: ["htb", "linux", "web", "privilege-escalation"]
-categories: ["writeups"]
-difficulty: ["Medium"]
-platform: ["Linux"]
+difficulty: "medium"
+platform: "linux"
 ---
-
-![MACHINE](../../images/Era.png)
 
 ## Generic Information
 

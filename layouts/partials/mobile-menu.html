@@ -1,0 +1,15 @@
+<ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      {{ $currentURL := .RelPermalink }}
+      {{ range $.Site.Menus.main }}
+        {{ if not .HasChildren }}
+          {{ $menuURL := .URL | relLangURL }}
+          {{ $isActive := hasPrefix $currentURL $menuURL }}
+          <li><a href="{{ .URL }}"{{ if $isActive }} class="active"{{ end }}>{{ .Name }}</a></li>
+        {{ end }}
+      {{ end }}
+    </ul>
+  </li>
+</ul>

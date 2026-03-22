@@ -1,0 +1,11 @@
+{{ $difficulty := .Get "difficulty" | default "unknown" }}
+{{ $os := .Get "os" | default "linux" }}
+{{ $points := .Get "points" | default "" }}
+{{ $date := .Get "date" | default "" }}
+
+<div class="htb-card">
+  <span class="htb-tag htb-difficulty htb-{{ $difficulty | lower }}">{{ $difficulty | title }}</span>
+  <span class="htb-tag htb-os">{{ $os | title }}</span>
+  {{ with $points }}<span class="htb-tag htb-points">{{ . }} pts</span>{{ end }}
+  {{ with $date }}<span class="htb-tag htb-date">Retired: {{ . }}</span>{{ end }}
+</div>

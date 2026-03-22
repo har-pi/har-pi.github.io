@@ -1,247 +1,119 @@
-baseURL: "https://harpi.github.io"
+baseURL: "https://har-pi.github.io/"
 languageCode: "en-us"
-title: "harpi - Cybersecurity Portfolio"
-description: "Pentesting | HTB Writeups | Research"
+title: "harpi — Security Researcher"
+description: "Penetration testing, vulnerability research, HackTheBox writeups"
 theme: "terminal"
-# This message is only used by the RSS template.
-copyright: ""
 
-archetypeDir: "archetypes"
-contentDir: "content"
-dataDir: "data"
-layoutDir: "layouts"
-publishDir: "public"
-
-#canonifyURLs = true
-#enableMissingTranslationPlaceholders = false
-#disableRSS     = false
-#disableSitemap = false
-#disable404     = false
-#disableHugoGeneratorInject = false
-
-pagination:
-  disableAliases: false
-  pagerSize: 20
-  path: "page"
-
-PygmentsCodeFences: true
-PygmentsStyle: "monokai"
-
+# Build settings
 enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
 enableGitInfo: true
 enableEmoji: true
-#timeout: 30000
 
-# Generic Parameters
+pagination:
+  pagerSize: 20
+
+# Syntax highlighting
+PygmentsCodeFences: true
+PygmentsStyle: "monokai"
+
+markup:
+  highlight:
+    noClasses: false
+    codeFences: true
+    guessSyntax: true
+    lineNos: true
+    lineNumbersInTable: true
+    style: monokai
+
+# Theme parameters
 params:
-  #  dateform        = "Jan 2, 2006"
-  #  dateformShort   = "Jan 2"
-  #  dateformNum     = "2006-01-02"
-  #  dateformNumTime = "2006-01-02 15:04"
-
-  ################### THEME ###################
-  # Dark mode settings
   defaultTheme: "dark"
-
-  # This options enables the theme toggle for the theme.
-  # Per default, this option is off.
-  # The theme is respecting the prefers-color-scheme of the operating system.
-  # With this option on, the page user is able to set the scheme he wants.
   enableThemeToggle: true
-
-  # Integrate Javascript files or stylesheets by adding the url to the external assets or by
-  # linking local files with their path relative to the static folder, e.g. "css/styles.css"
-  #customCSS: ["static/css/custom.css"]
-  #customJS: ["js/navigation.js"]
-
-  # Toggle this option need to rebuild SCSS, requires extended version of Hugo
-  justifyContent: false # Set "text-align: justify" to .post-content.
-
-  # Integrate Plausible.io
-  # plausibleDataDomain = 'test.com'
-  # plausibleScriptSource = 'https://plausible.io/js/script.js'
-
-  # ["orange", "blue", "red", "green", "pink", "paper"]
   themeColor: "green"
-
-  # set theme to full screen width
   fullWidthTheme: true
-
-  # center theme with default width
   centerTheme: true
-
-  # if your resource directory contains an image called `cover.(jpg|png|webp)`,
-  # then the file will be used as a cover automatically.
-  # With this option you don't have to put the `cover` param in a front-matter.
   autoCover: true
-
-  ################### TEXT/CONTENT ###################
-
   contentTypeName: "posts"
+  showMenuItems: 3
 
-  # if you set this to 0, only submenu trigger will be visible
-  showMenuItems: 5
-
-  # Home page config
+  # Branding
   homeSubtitle: "Security Researcher | Penetration Tester"
   subtitle: "Security Researcher | Penetration Tester"
-
-  # Site metadata
   author: "harpi"
-  description: "Cybersecurity researcher, penetration tester, and HTB enthusiast."
+  description: "Security researcher, penetration tester"
   keywords:
-    [
-      "cybersecurity",
-      "penetration testing",
-      "hack the box",
-      "security research",
-      "ethical hacking",
-      "vulnerability research",
-      "fuzzing",
-    ]
+    - "cybersecurity"
+    - "penetration testing"
+    - "hack the box"
+    - "security research"
+    - "ethical hacking"
+    - "vulnerability research"
+    - "fuzzing"
 
-  # Custom footer
-  # If you want, you can easily override the default footer with your own content
+  logo:
+    logoText: "~/harpi"
+
+  favicon: "favicon.png"
+
+  # Social links
+  social:
+    - name: "github"
+      url: "https://github.com/har-pi"
+    - name: "hackthebox"
+      url: "https://app.hackthebox.com/profile/harpi"
+
+  # Footer
   footer:
     trademark: false
     rss: true
     copyright: false
     author: false
 
-    #topText: ["harpi. All rights reserved"]
-    #bottomText: ["harpi. All rights reserved"]
-
+  # Content display
   showFullContent: false
-
-  ################### SOCIAL/LOGOS ###################
-
-  # Social icons
-  social:
-    - name: "github"
-      url: "https://github.com/har-pi"
-    - name: "gitlab"
-      url: "https://gitlab.com/harpi"
-    - name: "email"
-      url: "mailto:harrypantazis@radicallyopensecurity.com"
-    - name: "hackthebox"
-      url: "https://app.hackthebox.com/profile/harpi"
-
-  # Custom cybersecurity branding
-  logo:
-    logoText: "~/harpi"
-    #logoMark: "$"
-
-  # Portrait on home page
-  portrait:
-    path: "./images/profile.png"
-    alt: "harpi"
-    maxWidth: "150px"
-    env: production
-
-  title: Security Researcher
-
-  ################### MISC ###################
-
-  # Sharing buttons
-  #
-  # There are a lot of buttons preconfigured. If you want to change them,
-  # generate the buttons here: https://sharingbuttons.io
-  # and add them into your own `layouts/partials/sharing-buttons.html`
-  #enableSharingButtons: true
   showShareButtons: false
-
   showPostNavLinks: false
-
   showBreadCrumbs: false
-
   showCodeCopyButtons: true
-
   showWordCount: false
-
   showRssButtonInSectionTermList: true
+  ReadMore: "Read More →"
 
+  # Table of contents
   useHugoToc: true
-
-  disableSpecial1stPost: false
-  disableScrollToTop: false
-  comments: false
-  hidemeta: false
-  hideSummary: false
   showtoc: true
   tocopen: true
+  Toc: true
+  TocTitle: "Table of Contents"
 
-  # Set a background for the homepage
-  backgroundImage: "static/images/shodan-thumb-2.jpg"
+  # Reading time
+  readingTime: true
 
-  # Prefix of link to the git commit detail page. GitInfo must be enabled.
-  #
-  # gitUrl = ""
+  # Disabled features
+  comments: false
+  disableSpecial1stPost: false
+  disableScrollToTop: false
 
-  # Set disableReadOtherPosts to true in order to hide the links to other posts.
-  #
-  #disableReadOtherPosts = false
-
-  # show selector to switch language
-  #showLanguageSelector = false
-
-  # set post to show the last updated
-  # If you use git, you can set `enableGitInfo` to `true` and then post will automatically get the last updated
-  #showLastUpdated = false
-
-  # set a custom favicon (default is a `themeColor` square)
-  favicon: "images/profile.png"
-
-  # Provide a string as a prefix for the last update date. By default, it looks like this: 2020-xx-xx [Updated: 2020-xx-xx] :: Author
-  # updatedDatePrefix = "Updated"
-
-  # set all headings to their default size (depending on browser settings)
-  # oneHeadingSize = true # default
-
-  # whether to show a page's estimated reading time
-  readingTime: true # default
-
-  # whether to show a table of contents
-  # can be overridden in a page's front-matter
-  Toc: true # default
-
-  # set title for the table of contents
-  # can be overridden in a page's front-matter
-  TocTitle: "Table of Contents" # default
-
-  # you can set a banner on the top of the page with a call to action
-  banner:
-    dismissible: false
-    text: "Check it out on GitHub"
-    url: "https://github.com/mirus-ua/hugo-theme-re-terminal"
-
-# Menu configuration
+# Navigation
 menu:
   main:
-    - identifier: "home"
-      name: "Home"
-      url: "/"
-      weight: 10
-    - identifier: "about"
-      name: "About"
-      url: "/about/"
-      weight: 50
-    - identifier: "research"
-      name: "Research"
-      url: "/research/"
-      weight: 30
     - identifier: "blog"
-      name: "Blog"
+      name: "⚡ Blog"
       url: "/blog/"
       weight: 20
-    - identifier: "htb"
-      name: "HTB"
-      url: "/htb/"
-      weight: 40
+    - identifier: "research"
+      name: "☢ Research"
+      url: "/research/"
+      weight: 30
+    - identifier: "about"
+      name: "☣ About"
+      url: "/about/"
+      weight: 50
 
-# Must be usefull, not sure what it is
+# Taxonomies (used for tag/difficulty filtering)
 taxonomies:
   tag: "tags"
   category: "categories"
@@ -253,16 +125,6 @@ outputs:
   home: ["HTML", "RSS"]
   page: ["HTML"]
   section: ["HTML", "RSS"]
-
-# Markup code block stylin
-markup:
-  highlight:
-    noClasses: false
-    codeFences: true
-    guessSyntax: true
-    lineNos: true
-    lineNumbersInTable: true
-    style: monokai
 
 # Related content
 related:
@@ -276,50 +138,3 @@ related:
       weight: 10
   threshold: 20
   toLower: false
-
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-  # Addon: Utteranc.es
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-  # Utteranc.es is a lightweight comments widget built on GitHub issues.
-  # See https://utteranc.es/ for documentation
-  # Uncomment this to enable Utteranc.es.
-  #
-  # [params.utterances]
-  #   Your GitHub repository
-  #
-  #   repository = ""
-  #
-  #   label used for GitHub issues
-  #
-  #   label      = ""
-  #
-  #   Blog Post <-> Issue mapping. This parameter is optional. Possible values are:
-  #      - pathname
-  #      - url
-  #      - title
-  #      - og:title
-  #      - issue number
-  #      - specific term
-  #
-  #   issueTerm  = ""
-  #
-  #   Theme used: possible values are:
-  #      - github-light
-  #      - github-dark
-  #      - preferred-color-scheme
-  #      - github-dark-orange
-  #      - icy-dark
-  #      - dark-blue
-  #      - photon-dark
-  #      - boxy-light
-  #      - gruvbox-dark
-  #
-  #   theme      = ""
-  #
-
-caches:
-images:
-  dir: :cacheDir/images
-
-module.imports:
-  path: "github.com/panr/hugo-theme-terminal/v4"

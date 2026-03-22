@@ -1,0 +1,88 @@
+{{ define "main" }}
+
+<div class="dossier">
+
+  <div class="dossier-classbar">
+    <span>SEC-7 // PERSONNEL FILE</span>
+    <span>REF: {{ .Params.file_ref | default "CLASSIFIED" }}</span>
+  </div>
+
+  <div class="dossier-header">
+    <div class="dossier-header__left">
+      <span class="dossier-header__title">OPERATIVE DOSSIER</span>
+      <span class="dossier-header__sub">{{ .Params.division | default "Unknown" }}</span>
+    </div>
+    <span class="dossier-header__badge">CLASSIFIED</span>
+  </div>
+
+  <div class="dossier-profile">
+    <div class="dossier-profile__image-wrap">
+      <img src="{{ (.Params.profile_image | default "favicon.png") | relURL }}" alt="Operative portrait" class="dossier-profile__image" />
+      <div class="dossier-profile__image-label">SUBJ. PHOTO</div>
+    </div>
+    <div class="dossier-profile__stats">
+      <div class="dossier-stat">
+        <span class="dossier-stat__label">ALIAS</span>
+        <span class="dossier-stat__value dossier-stat__value--large">{{ .Params.alias | default "REDACTED" }}</span>
+      </div>
+      {{ with .Params.legal_name }}
+      <div class="dossier-stat">
+        <span class="dossier-stat__label">LEGAL NAME</span>
+        <span class="dossier-stat__value">{{ . }}</span>
+      </div>
+      {{ end }}
+      <div class="dossier-stat">
+        <span class="dossier-stat__label">ROLE</span>
+        <span class="dossier-stat__value">{{ .Params.role | default "REDACTED" }}</span>
+      </div>
+    </div>
+  </div>
+
+  {{ with .Params.certs }}
+  <div class="dossier-section">
+    <h2 class="dossier-section__title">CLEARANCE CREDENTIALS</h2>
+    <div class="dossier-certs-grid">
+      {{ range . }}
+      <div class="dossier-cert-card">
+        <span class="dossier-cert-card__code">{{ .code }}</span>
+        <span class="dossier-cert-card__name">{{ .name }}</span>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+
+  {{ with .Params.capabilities }}
+  <div class="dossier-section">
+    <h2 class="dossier-section__title">PRIMARY CAPABILITIES</h2>
+    <div class="dossier-capabilities">
+      {{ range . }}
+      <div class="dossier-cap">
+        <span class="dossier-cap__header">{{ .header }}</span>
+        <span class="dossier-cap__desc">{{ .desc }}</span>
+        <div class="dossier-cap__bar"><div class="dossier-cap__fill" style="width:{{ .level }}%"></div></div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+
+  {{ with .Params.specializations }}
+  <div class="dossier-section">
+    <h2 class="dossier-section__title">SPECIALIZATION MATRIX</h2>
+    <div class="dossier-specs">
+      {{ range . }}
+      <span class="dossier-spec">{{ . }}</span>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+
+  <div class="dossier-classbar dossier-classbar--bottom">
+    <span>END OF FILE</span>
+    <span>ACCESS: LEVEL 3+</span>
+  </div>
+
+</div>
+
+{{ end }}

@@ -10,15 +10,9 @@ body {
     z-index: -2;
 }
 
-/* Make header and footer visible */
+/* Hide header on landing page — nav is embedded in the video overlay */
 .header {
-    position: relative !important;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    backdrop-filter: blur(30px);
-    opacity: 0.8;
+    display: none !important;
 }
 
 .footer {
@@ -33,25 +27,12 @@ body {
     opacity: 0;
 }
 
-/* Adjust container to account for fixed header/footer */
-#container {
-    padding-top: 80px;
-    /* Adjust based on your header height */
-    padding-bottom: 100px;
-    /* Adjust based on your footer height */
-}
-
 /* Mobile responsiveness */
 @media only screen and (max-width: 667px) {
 
     .header,
     .footer {
         backdrop-filter: blur(5px);
-    }
-
-    #container {
-        padding-top: 60px;
-        padding-bottom: 80px;
     }
 
     .header__inner {
@@ -233,17 +214,24 @@ video#bgvid {
 }
 
 #container .item-title .link-bottom .link-icon {
-    font-size: 32px;
-    margin-left: 8px;
-    margin-right: 8px;
+    font-size: 28px;
+    margin-left: 10px;
+    margin-right: 10px;
     margin-top: 8px;
     margin-bottom: 24px;
+    color: rgba(var(--accent-rgb), 0.85);
+    transition: all 0.25s ease;
+}
+
+#container .item-title .link-bottom .link-icon:hover {
+    color: var(--accent);
+    text-shadow: 0 0 12px rgba(var(--accent-rgb), 0.7);
 }
 
 #container .item-title #message {
-    max-width: 600px;
-    line-height: 96px;
-    min-height: 300px;
+    max-width: 700px;
+    line-height: 88px;
+    min-height: 240px;
     margin: 0 auto;
     padding-left: 12px;
     user-select: none;
@@ -251,16 +239,28 @@ video#bgvid {
 }
 
 #container .item-title #message p:first-child {
-    font-size: 118px;
-    font-weight: 200;
-    margin-top: 128px;
-    margin-bottom: 24px;
+    font-size: 96px;
+    font-weight: 400;
+    margin-top: 96px;
+    margin-bottom: 20px;
     z-index: 10;
-    color: #fff;
+    color: var(--accent);
+    text-shadow: 0 0 20px rgba(var(--accent-rgb), 0.6), 0 0 40px rgba(var(--accent-rgb), 0.2);
+}
+
+#container .item-title #message p:nth-child(n+2) {
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(var(--accent-rgb), 0.4);
+    font-size: 20px;
+    font-weight: 400;
 }
 
 #container .item-title #message p:last-child {
     margin-bottom: 0px;
+    color: rgba(255, 255, 255, 0.5);
+    text-shadow: none;
+    font-size: 16px;
+    letter-spacing: 0.15em;
 }
 
 #container .item-title .link-bottom {
@@ -340,12 +340,12 @@ video#bgvid {
     }
 
     #container .item-title #message p:first-child {
-        font-size: 60px;
+        font-size: 46px;
         font-weight: 200;
     }
 
     #container .item-title #message {
-        min-height: 400px;
+        min-height: 280px;
     }
 
     #container .item-title {
@@ -364,5 +364,58 @@ video#bgvid {
 
     .opl {
         opacity: 0;
+    }
+}
+
+/* ── Landing page nav buttons ── */
+.landing-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 2rem 0 1.5rem;
+    animation-delay: 2s;
+    animation-duration: 1s;
+}
+
+.landing-nav__link {
+    display: inline-block;
+    min-width: 200px;
+    text-align: center;
+    font-family: "Fira Code", monospace;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    background: rgba(0, 0, 0, 0.55);
+    border: 2px solid rgba(var(--accent-rgb), 0.35);
+    border-radius: 8px;
+    padding: 0.75rem 2rem;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.landing-nav__link:hover {
+    background: rgba(var(--accent-rgb), 0.12);
+    border-color: var(--accent-bright);
+    box-shadow:
+        0 0 12px rgba(var(--accent-rgb), 0.7),
+        0 0 30px rgba(var(--accent-rgb), 0.35),
+        inset 0 0 8px rgba(var(--accent-rgb), 0.08);
+    color: #ffffff;
+    text-decoration: none;
+    text-shadow: 0 0 8px rgba(var(--accent-rgb), 0.8);
+}
+
+@media only screen and (max-width: 667px) {
+    .landing-nav {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .landing-nav__link {
+        min-width: 120px;
     }
 }

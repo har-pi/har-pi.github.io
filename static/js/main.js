@@ -6,18 +6,17 @@ $(window).load(function () {
             delay: 0,
             text: 'Harry ~harpi~ Pantazis'
         });
-
         MESSAGES.push({
             delay: 800,
-            text: ' —  Security Researcher;'
+            text: '— Security Researcher;'
         });
         MESSAGES.push({
             delay: 1600,
-            text: ' —  Penetration Tester;'
+            text: '— Penetration Tester;'
         });
         MESSAGES.push({
             delay: 2400,
-            text: ' —  Red Teamer;'
+            text: ''
         });
         $container = $('#container');
         $message = $('#message');
