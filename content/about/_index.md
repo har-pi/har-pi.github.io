@@ -24,7 +24,7 @@ capabilities:
     desc: "OWASP methodology, API security, auth bypass, business logic flaws"
     level: 90
   - header: "VULN RESEARCH"
-    desc: "CVE hunting, PoC development, responsible disclosure, patch analysis"
+    desc: "CVE hunting, PoC development, patch analysis"
     level: 85
   - header: "RED TEAM OPS"
     desc: "Internal engagements, network infrastructure, lateral movement"
