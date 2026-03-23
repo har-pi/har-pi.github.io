@@ -1,4 +1,4 @@
-baseURL: "https://har-pi.github.io/"
+baseURL: "https://harpi.cc/"
 languageCode: "en-us"
 title: "harpi — Security Researcher"
 description: "Penetration testing, vulnerability research, HackTheBox writeups"
@@ -62,8 +62,19 @@ params:
   social:
     - name: "github"
       url: "https://github.com/har-pi"
+      icon: "github"
     - name: "hackthebox"
       url: "https://app.hackthebox.com/profile/harpi"
+      icon: "hackthebox"
+    - name: "mastodon"
+      url: "https://infosec.exchange/@harpi"
+      icon: "mastodon"
+    - name: "email"
+      url: "mailto:root@harpi.cc"
+      icon: "email"
+    - name: "gpg"
+      url: "/gpg.asc"
+      icon: "key"
 
   # Footer
   footer:
@@ -124,7 +135,7 @@ taxonomies:
 outputs:
   home: ["HTML", "RSS"]
   page: ["HTML"]
-  section: ["HTML", "RSS"]
+  section: ["HTML"]
 
 # Related content
 related:

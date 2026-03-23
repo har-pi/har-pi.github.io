@@ -1,6 +1,6 @@
 # harpi-portfolio
 
-Personal cybersecurity portfolio — [har-pi.github.io](https://har-pi.github.io/)
+Personal cybersecurity portfolio — [harpi.cc](https://harpi.cc/)
 
 Hugo static site using [hugo-theme-terminal v4](https://github.com/panr/hugo-theme-terminal). Black background, green + amber accents. No JS frameworks, no tracking, no bloat.
 
@@ -8,7 +8,7 @@ Hugo static site using [hugo-theme-terminal v4](https://github.com/panr/hugo-the
 
 | Repo | Branch | URL | Purpose |
 |------|--------|-----|---------|
-| `har-pi.github.io` | `master` | [har-pi.github.io](https://har-pi.github.io/) | Current live site |
+| `har-pi.github.io` | `master` | [harpi.cc](https://harpi.cc/) | Current live site (custom domain) |
 | `harpi-portfolio` | `legacy` | [har-pi.github.io/harpi-portfolio](https://har-pi.github.io/harpi-portfolio/) | Archived original version |
 
 Both repos use the same GitHub Actions workflow (`.github/workflows/hugo.yaml`). The workflow auto-detects the correct `baseURL` from GitHub Pages settings at build time.
@@ -64,8 +64,8 @@ All content is in `content/`. Each section has an `_index.md` for the landing pa
 |------|------|---------|
 | Site title, baseURL | `config.yaml` | top-level |
 | Menu items | `config.yaml` | `menu.main` |
-| Social links | `config.yaml` | `social` |
-| Footer text | `config.yaml` | `params` |
+| Social links (footer + landing) | `config.yaml` | `params.social` (GitHub, HTB, Mastodon, email, GPG) |
+| Footer quote | `layouts/partials/footer.html` | hardcoded Gibson quote |
 
 ### Styling
 
@@ -78,7 +78,9 @@ All content is in `content/`. Each section has an `_index.md` for the landing pa
 | Section title size | `static/style.css` → `.index-content h1.section-title` |
 | Post card styling | `static/style.css` → `.post.on-list` |
 | Landing page buttons | `static/css/animate-style.css` → `.landing-nav__link` |
+| Landing page social icons | `static/css/animate-style.css` → `.link-icon` |
 | Landing page title size | `static/css/animate-style.css` → `.item-title` |
+| Code syntax highlighting | `static/css/syntax.css` — Chroma classes (palette-matched) |
 
 ### Layout templates
 

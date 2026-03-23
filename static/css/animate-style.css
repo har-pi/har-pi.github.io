@@ -214,7 +214,9 @@ video#bgvid {
 }
 
 #container .item-title .link-bottom .link-icon {
-    font-size: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 8px;
@@ -223,9 +225,14 @@ video#bgvid {
     transition: all 0.25s ease;
 }
 
+#container .item-title .link-bottom .link-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
 #container .item-title .link-bottom .link-icon:hover {
     color: var(--accent);
-    text-shadow: 0 0 12px rgba(var(--accent-rgb), 0.7);
+    filter: drop-shadow(0 0 8px rgba(var(--accent-rgb), 0.7));
 }
 
 #container .item-title #message {

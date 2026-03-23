@@ -6,18 +6,21 @@ alias: "har-pi"
 legal_name: "Harry Pantazis"
 role: "Security Researcher / Penetration Tester"
 division: "Cyber Division"
-file_ref: "HP-0x7E3"
 profile_image: "images/harpy_hag.webp"
 
 certs:
   - code: "OSCP"
     name: "Offensive Security Certified Professional"
+    url: "https://www.offsec.com/courses/pen-200/"
   - code: "OWSP"
     name: "Wireless OffSec Professional"
+    url: "https://www.youracclaim.com/"
   - code: "BURP"
     name: "Burp Suite Certified Practitioner"
+    url: "https://portswigger.net/web-security/certification"
   - code: "HTB-AI"
     name: "HackTheBox AI Red Teaming"
+    url: "https://academy.hackthebox.com/"
 
 capabilities:
   - header: "WEB APP PENTEST"

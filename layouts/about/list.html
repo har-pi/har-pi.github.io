@@ -2,51 +2,45 @@
 
 <div class="dossier">
 
-  <div class="dossier-classbar">
-    <span>SEC-7 // PERSONNEL FILE</span>
-    <span>REF: {{ .Params.file_ref | default "CLASSIFIED" }}</span>
-  </div>
-
   <div class="dossier-header">
-    <div class="dossier-header__left">
-      <span class="dossier-header__title">OPERATIVE DOSSIER</span>
-      <span class="dossier-header__sub">{{ .Params.division | default "Unknown" }}</span>
-    </div>
-    <span class="dossier-header__badge">CLASSIFIED</span>
+    <span class="dossier-header__title">{{ .Params.alias | default "unknown" }}</span>
+    <span class="dossier-header__sub">{{ .Params.division | default "" }}</span>
   </div>
 
   <div class="dossier-profile">
     <div class="dossier-profile__image-wrap">
-      <img src="{{ (.Params.profile_image | default "favicon.png") | relURL }}" alt="Operative portrait" class="dossier-profile__image" />
-      <div class="dossier-profile__image-label">SUBJ. PHOTO</div>
+      <img src="{{ (.Params.profile_image | default "favicon.png") | relURL }}" alt="Portrait" class="dossier-profile__image" />
     </div>
     <div class="dossier-profile__stats">
-      <div class="dossier-stat">
-        <span class="dossier-stat__label">ALIAS</span>
-        <span class="dossier-stat__value dossier-stat__value--large">{{ .Params.alias | default "REDACTED" }}</span>
-      </div>
       {{ with .Params.legal_name }}
       <div class="dossier-stat">
-        <span class="dossier-stat__label">LEGAL NAME</span>
+        <span class="dossier-stat__label">NAME</span>
         <span class="dossier-stat__value">{{ . }}</span>
       </div>
       {{ end }}
       <div class="dossier-stat">
         <span class="dossier-stat__label">ROLE</span>
-        <span class="dossier-stat__value">{{ .Params.role | default "REDACTED" }}</span>
+        <span class="dossier-stat__value">{{ .Params.role | default "—" }}</span>
       </div>
     </div>
   </div>
 
   {{ with .Params.certs }}
   <div class="dossier-section">
-    <h2 class="dossier-section__title">CLEARANCE CREDENTIALS</h2>
+    <h2 class="dossier-section__title">CERTS</h2>
     <div class="dossier-certs-grid">
       {{ range . }}
+      {{ if .url }}
+      <a href="{{ .url }}" target="_blank" rel="noopener" class="dossier-cert-card dossier-cert-card--link">
+        <span class="dossier-cert-card__code">{{ .code }}</span>
+        <span class="dossier-cert-card__name">{{ .name }}</span>
+      </a>
+      {{ else }}
       <div class="dossier-cert-card">
         <span class="dossier-cert-card__code">{{ .code }}</span>
         <span class="dossier-cert-card__name">{{ .name }}</span>
       </div>
+      {{ end }}
       {{ end }}
     </div>
   </div>
@@ -54,7 +48,7 @@
 
   {{ with .Params.capabilities }}
   <div class="dossier-section">
-    <h2 class="dossier-section__title">PRIMARY CAPABILITIES</h2>
+    <h2 class="dossier-section__title">CAPABILITIES</h2>
     <div class="dossier-capabilities">
       {{ range . }}
       <div class="dossier-cap">
@@ -69,7 +63,7 @@
 
   {{ with .Params.specializations }}
   <div class="dossier-section">
-    <h2 class="dossier-section__title">SPECIALIZATION MATRIX</h2>
+    <h2 class="dossier-section__title">SPECS</h2>
     <div class="dossier-specs">
       {{ range . }}
       <span class="dossier-spec">{{ . }}</span>
@@ -78,9 +72,8 @@
   </div>
   {{ end }}
 
-  <div class="dossier-classbar dossier-classbar--bottom">
-    <span>END OF FILE</span>
-    <span>ACCESS: LEVEL 3+</span>
+  <div class="dossier-footer">
+    <span>EOF</span>
   </div>
 
 </div>

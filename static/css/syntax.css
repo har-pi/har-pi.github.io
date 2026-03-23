@@ -1,0 +1,88 @@
+/* ============================================================
+   SYNTAX HIGHLIGHTING — Chroma (monokai-based, palette-matched)
+   Generated via `hugo gen chromastyles --style=monokai`, then
+   customized to match the site palette (green/amber/dark).
+   ============================================================ */
+
+/* Background + wrapper */
+.bg { color: #f8f8f2; background-color: rgba(var(--card-bg-rgb), 1); }
+.chroma { color: #f8f8f2; background-color: rgba(var(--card-bg-rgb), 1); }
+
+/* Line infrastructure */
+.chroma .lnlinks { outline: none; text-decoration: none; color: inherit; }
+.chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+.chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; }
+.chroma .hl { background-color: rgba(var(--accent-rgb), 0.08); }
+.chroma .lnt { white-space: pre; user-select: none; margin-right: 0.4em; padding: 0 0.4em; color: rgba(var(--fg-rgb), 0.3); }
+.chroma .ln  { white-space: pre; user-select: none; margin-right: 0.4em; padding: 0 0.4em; color: rgba(var(--fg-rgb), 0.3); }
+.chroma .line { display: flex; }
+
+/* Error */
+.chroma .err { color: rgb(var(--hard-rgb)); }
+
+/* Keywords — cyan */
+.chroma .k  { color: #66d9ef; }
+.chroma .kc { color: #66d9ef; }
+.chroma .kd { color: #66d9ef; }
+.chroma .kn { color: #f92672; }
+.chroma .kp { color: #66d9ef; }
+.chroma .kr { color: #66d9ef; }
+.chroma .kt { color: #66d9ef; }
+
+/* Names — green (matches accent) */
+.chroma .na { color: rgb(var(--accent-rgb)); }
+.chroma .nc { color: rgb(var(--accent-bright-rgb)); }
+.chroma .no { color: #66d9ef; }
+.chroma .nd { color: rgb(var(--accent-rgb)); }
+.chroma .ne { color: rgb(var(--accent-rgb)); }
+.chroma .nx { color: rgb(var(--accent-rgb)); }
+.chroma .nf { color: rgb(var(--accent-bright-rgb)); }
+.chroma .fm { color: rgb(var(--accent-bright-rgb)); }
+.chroma .nt { color: #f92672; }
+
+/* Strings — amber (matches secondary accent) */
+.chroma .l  { color: #ae81ff; }
+.chroma .ld { color: rgb(var(--amber-rgb)); }
+.chroma .s  { color: rgb(var(--amber-rgb)); }
+.chroma .sa { color: rgb(var(--amber-rgb)); }
+.chroma .sb { color: rgb(var(--amber-rgb)); }
+.chroma .sc { color: rgb(var(--amber-rgb)); }
+.chroma .dl { color: rgb(var(--amber-rgb)); }
+.chroma .sd { color: rgb(var(--amber-rgb)); }
+.chroma .s2 { color: rgb(var(--amber-rgb)); }
+.chroma .se { color: #ae81ff; }
+.chroma .sh { color: rgb(var(--amber-rgb)); }
+.chroma .si { color: rgb(var(--amber-rgb)); }
+.chroma .sx { color: rgb(var(--amber-rgb)); }
+.chroma .sr { color: rgb(var(--amber-rgb)); }
+.chroma .s1 { color: rgb(var(--amber-rgb)); }
+.chroma .ss { color: rgb(var(--amber-rgb)); }
+
+/* Numbers — purple */
+.chroma .m  { color: #ae81ff; }
+.chroma .mb { color: #ae81ff; }
+.chroma .mf { color: #ae81ff; }
+.chroma .mh { color: #ae81ff; }
+.chroma .mi { color: #ae81ff; }
+.chroma .il { color: #ae81ff; }
+.chroma .mo { color: #ae81ff; }
+
+/* Operators — pink/red */
+.chroma .o  { color: #f92672; }
+.chroma .ow { color: #f92672; }
+
+/* Comments — muted */
+.chroma .c   { color: rgba(var(--fg-rgb), 0.4); font-style: italic; }
+.chroma .ch  { color: rgba(var(--fg-rgb), 0.4); font-style: italic; }
+.chroma .cm  { color: rgba(var(--fg-rgb), 0.4); font-style: italic; }
+.chroma .c1  { color: rgba(var(--fg-rgb), 0.4); font-style: italic; }
+.chroma .cs  { color: rgba(var(--fg-rgb), 0.4); font-style: italic; }
+.chroma .cp  { color: rgba(var(--fg-rgb), 0.4); }
+.chroma .cpf { color: rgba(var(--fg-rgb), 0.4); }
+
+/* Diff */
+.chroma .gd { color: #f92672; }
+.chroma .ge { font-style: italic; }
+.chroma .gi { color: rgb(var(--accent-rgb)); }
+.chroma .gs { font-weight: bold; }
+.chroma .gu { color: rgba(var(--fg-rgb), 0.4); }
