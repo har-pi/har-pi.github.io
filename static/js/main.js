@@ -14,10 +14,6 @@ $(window).load(function () {
             delay: 1600,
             text: '— Penetration Tester;'
         });
-        MESSAGES.push({
-            delay: 2400,
-            text: ''
-        });
         $container = $('#container');
         $message = $('#message');
         $animate = $('#animate');

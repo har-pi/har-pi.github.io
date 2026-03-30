@@ -1,2 +1,17 @@
 {{/* style.css is auto-loaded by the theme's head.html — no duplicate needed */}}
 <link rel="stylesheet" href="{{ "css/syntax.css" | relURL }}">
+{{/* Mobile nav override — inline to guarantee it loads after all stylesheets */}}
+<style>
+@media (max-width: 684px) {
+  html { overflow-x: hidden; }
+  .navigation-menu,
+  ul.navigation-menu__inner { display: none !important; }
+  .menu__trigger { white-space: nowrap; }
+  .menu__dropdown {
+    right: 0 !important;
+    left: auto !important;
+    min-width: 180px;
+    white-space: nowrap;
+  }
+}
+</style>

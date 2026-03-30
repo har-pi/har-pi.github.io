@@ -2,7 +2,7 @@
 
 Personal cybersecurity portfolio — [harpi.cc](https://harpi.cc/)
 
-Hugo static site using [hugo-theme-terminal v4](https://github.com/panr/hugo-theme-terminal). Black background, green + amber accents. No JS frameworks, no tracking, no bloat.
+Hugo static site using [hugo-theme-terminal v4](https://github.com/panr/hugo-theme-terminal). Black background, green + amber accents. No JS frameworks, no tracking, no bloat. Fully responsive across desktop, tablet, and mobile.
 
 ## Deployment
 
@@ -80,6 +80,7 @@ All content is in `content/`. Each section has an `_index.md` for the landing pa
 | Landing page buttons | `static/css/animate-style.css` → `.landing-nav__link` |
 | Landing page social icons | `static/css/animate-style.css` → `.link-icon` |
 | Landing page title size | `static/css/animate-style.css` → `.item-title` |
+| Mobile nav overrides | `layouts/partials/extended_head.html` → inline `<style>` (must stay inline) |
 | Code syntax highlighting | `static/css/syntax.css` — Chroma classes (palette-matched) |
 
 ### Layout templates
@@ -90,10 +91,24 @@ All content is in `content/`. Each section has an `_index.md` for the landing pa
 | Section listing pages | `layouts/_default/list.html` |
 | Header (logo + nav) | `layouts/partials/header.html` |
 | Navigation menu | `layouts/partials/menu.html` |
+| Mobile nav + syntax CSS | `layouts/partials/extended_head.html` |
 | About page (dossier card) | `layouts/about/list.html` |
 | Footer | `layouts/partials/footer.html` |
 
 **Do not edit files inside `themes/terminal/`** — override them by creating files in `layouts/` with the same path.
+
+### Responsive design
+
+The site is tested across 5 viewports: desktop (1920), laptop (1366), tablet (768), phone (375), phone landscape (812×375).
+
+| Breakpoint | Behavior |
+|------------|----------|
+| `≥ 685px` | Desktop nav pills inline with logo |
+| `≤ 900px` | Reduced nav pill padding for tablet |
+| `≤ 684px` | Hamburger "MENU ▾" dropdown, desktop nav hidden |
+| `≤ 768px` | Single-column post grid |
+| `≤ 667px` | Compact landing page (smaller name, wrapped nav buttons) |
+| `≤ 650px` | Stacked dossier card layout |
 
 ### Frontmatter for new posts
 
