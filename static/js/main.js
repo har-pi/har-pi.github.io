@@ -4,7 +4,7 @@ $(window).load(function () {
         MESSAGES = [];
         MESSAGES.push({
             delay: 0,
-            text: 'Harry ~harpi~ Pantazis'
+            text: 'Harry Pantazis'
         });
         MESSAGES.push({
             delay: 800,

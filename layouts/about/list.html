@@ -2,43 +2,54 @@
 
 <div class="dossier">
 
-  <div class="dossier-header">
-    <span class="dossier-header__title">{{ .Params.alias | default "unknown" }}</span>
-    <span class="dossier-header__sub">{{ .Params.division | default "" }}</span>
+  {{/* ── Classification bar ── */}}
+  <div class="dossier-classbar">
+    <span class="dossier-classbar__ref">DOSSIER // {{ .Params.handle | default "harpi" | upper }}</span>
+    <span class="dossier-classbar__class">UNCLASSIFIED</span>
   </div>
 
+  {{/* ── Profile section ── */}}
   <div class="dossier-profile">
     <div class="dossier-profile__image-wrap">
       <img src="{{ (.Params.profile_image | default "favicon.png") | relURL }}" alt="Portrait" class="dossier-profile__image" />
     </div>
-    <div class="dossier-profile__stats">
-      {{ with .Params.legal_name }}
-      <div class="dossier-stat">
-        <span class="dossier-stat__label">NAME</span>
-        <span class="dossier-stat__value">{{ . }}</span>
+    <div class="dossier-profile__info">
+      <div class="dossier-field">
+        <span class="dossier-field__key">NAME</span>
+        <span class="dossier-field__val">{{ .Params.legal_name | default "—" }}</span>
+      </div>
+      <div class="dossier-field">
+        <span class="dossier-field__key">HANDLE</span>
+        <span class="dossier-field__val">{{ .Params.handle | default "harpi" }}</span>
+      </div>
+      <div class="dossier-field">
+        <span class="dossier-field__key">ROLE</span>
+        <span class="dossier-field__val">{{ .Params.role | default "—" }}</span>
+      </div>
+      {{ with .Params.affiliation }}
+      <div class="dossier-field">
+        <span class="dossier-field__key">AFFIL</span>
+        <span class="dossier-field__val">{{ . }}</span>
       </div>
       {{ end }}
-      <div class="dossier-stat">
-        <span class="dossier-stat__label">ROLE</span>
-        <span class="dossier-stat__value">{{ .Params.role | default "—" }}</span>
-      </div>
     </div>
   </div>
 
+  {{/* ── Certifications ── */}}
   {{ with .Params.certs }}
-  <div class="dossier-section">
-    <h2 class="dossier-section__title">CERTS</h2>
-    <div class="dossier-certs-grid">
+  <div class="dossier-block">
+    <div class="dossier-block__head">CERTIFICATIONS</div>
+    <div class="dossier-certs">
       {{ range . }}
       {{ if .url }}
-      <a href="{{ .url }}" target="_blank" rel="noopener" class="dossier-cert-card dossier-cert-card--link">
-        <span class="dossier-cert-card__code">{{ .code }}</span>
-        <span class="dossier-cert-card__name">{{ .name }}</span>
+      <a href="{{ .url }}" target="_blank" rel="noopener" class="dossier-cert">
+        <span class="dossier-cert__code">{{ .code }}</span>
+        <span class="dossier-cert__name">{{ .name }}</span>
       </a>
       {{ else }}
-      <div class="dossier-cert-card">
-        <span class="dossier-cert-card__code">{{ .code }}</span>
-        <span class="dossier-cert-card__name">{{ .name }}</span>
+      <div class="dossier-cert">
+        <span class="dossier-cert__code">{{ .code }}</span>
+        <span class="dossier-cert__name">{{ .name }}</span>
       </div>
       {{ end }}
       {{ end }}
@@ -46,35 +57,32 @@
   </div>
   {{ end }}
 
+  {{/* ── Operational Focus ── */}}
   {{ with .Params.capabilities }}
-  <div class="dossier-section">
-    <h2 class="dossier-section__title">CAPABILITIES</h2>
-    <div class="dossier-capabilities">
+  <div class="dossier-block">
+    <div class="dossier-block__head">OPERATIONAL FOCUS</div>
+    <div class="dossier-ops">
       {{ range . }}
-      <div class="dossier-cap">
-        <span class="dossier-cap__header">{{ .header }}</span>
-        <span class="dossier-cap__desc">{{ .desc }}</span>
-        <div class="dossier-cap__bar"><div class="dossier-cap__fill" style="width:{{ .level }}%"></div></div>
+      <div class="dossier-op">
+        <span class="dossier-op__title">{{ .header }}</span>
+        <span class="dossier-op__detail">{{ .desc }}</span>
       </div>
       {{ end }}
     </div>
   </div>
   {{ end }}
 
-  {{ with .Params.specializations }}
-  <div class="dossier-section">
-    <h2 class="dossier-section__title">SPECS</h2>
-    <div class="dossier-specs">
-      {{ range . }}
-      <span class="dossier-spec">{{ . }}</span>
-      {{ end }}
+  {{/* ── Site overview ── */}}
+  {{ with .Params.site_overview }}
+  <div class="dossier-block">
+    <div class="dossier-block__head">THIS SITE</div>
+    <div class="dossier-site-overview">
+      {{ . | markdownify }}
     </div>
   </div>
   {{ end }}
 
-  <div class="dossier-footer">
-    <span>EOF</span>
-  </div>
+  <div class="dossier-endmark">END OF FILE</div>
 
 </div>
 

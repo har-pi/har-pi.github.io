@@ -2,10 +2,10 @@
 title: "About"
 draft: false
 
-alias: "har-pi"
 legal_name: "Harry Pantazis"
+handle: "harpi"
 role: "Security Researcher / Penetration Tester"
-division: "Cyber Division"
+affiliation: "Independent"
 profile_image: "images/harpy_hag.webp"
 
 certs:
@@ -15,7 +15,7 @@ certs:
   - code: "OWSP"
     name: "Wireless OffSec Professional"
     url: "https://www.youracclaim.com/"
-  - code: "BURP"
+  - code: "BSCP"
     name: "Burp Suite Certified Practitioner"
     url: "https://portswigger.net/web-security/certification"
   - code: "HTB-AI"
@@ -25,22 +25,15 @@ certs:
 capabilities:
   - header: "WEB APP PENTEST"
     desc: "OWASP methodology, API security, auth bypass, business logic flaws"
-    level: 90
   - header: "VULN RESEARCH"
-    desc: "CVE hunting, PoC development, patch analysis"
-    level: 85
+    desc: "CVE hunting, fuzzing, PoC development, patch analysis"
   - header: "RED TEAM OPS"
     desc: "Internal engagements, network infrastructure, lateral movement"
-    level: 80
 
-specializations:
-  - "Binary exploitation"
-  - "Fuzzing"
-  - "Firmware & embedded"
-  - "AI Red Teaming"
-  - "CTF competitions"
-  - "Reverse engineering"
-  - "Network pentest"
-  - "OSINT"
+site_overview: |
+  Writeups, research, and notes from the field.
+  CVE disclosures and trophy case under [Research](/research/).
+  HTB machines and methodology under [Blog](/blog/).
+  Source available on [GitHub](https://github.com/har-pi/har-pi.github.io).
 
 ---

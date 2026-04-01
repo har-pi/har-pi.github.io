@@ -1,6 +1,6 @@
 baseURL: "https://harpi.cc/"
 languageCode: "en-us"
-title: "harpi — Security Researcher"
+title: "harpi - Security Researcher"
 description: "Penetration testing, vulnerability research, HackTheBox writeups"
 theme: "terminal"
 
@@ -64,13 +64,13 @@ params:
       url: "https://github.com/har-pi"
       icon: "github"
     - name: "hackthebox"
-      url: "https://app.hackthebox.com/profile/harpi"
+      url: "https://app.hackthebox.com/public/users/1140708"
       icon: "hackthebox"
     - name: "mastodon"
-      url: "https://infosec.exchange/@harpi"
+      url: "https://kafeneio.social/@harpi"
       icon: "mastodon"
     - name: "email"
-      url: "mailto:root@harpi.cc"
+      url: "mailto:harry@harpi.cc"
       icon: "email"
     - name: "gpg"
       url: "/gpg.asc"
@@ -91,7 +91,7 @@ params:
   showCodeCopyButtons: true
   showWordCount: false
   showRssButtonInSectionTermList: true
-  ReadMore: "Read More →"
+  ReadMore: "Read More"
 
   # Table of contents
   useHugoToc: true

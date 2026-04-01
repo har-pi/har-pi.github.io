@@ -1,12 +1,13 @@
 /* ============================================================
-   SYNTAX HIGHLIGHTING — Chroma (monokai-based, palette-matched)
-   Generated via `hugo gen chromastyles --style=monokai`, then
-   customized to match the site palette (green/amber/dark).
+   SYNTAX HIGHLIGHTING — Chroma (palette-matched)
+   All colors use site palette variables. No hardcoded hex.
+   Palette: green=keywords/names, white=strings/literals,
+   muted fg=operators/punctuation, dimmed fg=comments.
    ============================================================ */
 
 /* Background + wrapper */
-.bg { color: #f8f8f2; background-color: rgba(var(--card-bg-rgb), 1); }
-.chroma { color: #f8f8f2; background-color: rgba(var(--card-bg-rgb), 1); }
+.bg { color: rgba(var(--fg-rgb), 0.9); background-color: rgba(var(--card-bg-rgb), 1); }
+.chroma { color: rgba(var(--fg-rgb), 0.9); background-color: rgba(var(--card-bg-rgb), 1); }
 
 /* Line infrastructure */
 .chroma .lnlinks { outline: none; text-decoration: none; color: inherit; }
@@ -20,68 +21,68 @@
 /* Error */
 .chroma .err { color: rgb(var(--hard-rgb)); }
 
-/* Keywords — cyan */
-.chroma .k  { color: #66d9ef; }
-.chroma .kc { color: #66d9ef; }
-.chroma .kd { color: #66d9ef; }
-.chroma .kn { color: #f92672; }
-.chroma .kp { color: #66d9ef; }
-.chroma .kr { color: #66d9ef; }
-.chroma .kt { color: #66d9ef; }
+/* Keywords — bright green */
+.chroma .k  { color: rgb(var(--accent-bright-rgb)); }
+.chroma .kc { color: rgb(var(--accent-bright-rgb)); }
+.chroma .kd { color: rgb(var(--accent-bright-rgb)); }
+.chroma .kn { color: rgb(var(--hi-rgb)); }
+.chroma .kp { color: rgb(var(--accent-bright-rgb)); }
+.chroma .kr { color: rgb(var(--accent-bright-rgb)); }
+.chroma .kt { color: rgb(var(--accent-dim-rgb)); }
 
-/* Names — green (matches accent) */
+/* Names — green */
 .chroma .na { color: rgb(var(--accent-rgb)); }
 .chroma .nc { color: rgb(var(--accent-bright-rgb)); }
-.chroma .no { color: #66d9ef; }
+.chroma .no { color: rgb(var(--accent-dim-rgb)); }
 .chroma .nd { color: rgb(var(--accent-rgb)); }
 .chroma .ne { color: rgb(var(--accent-rgb)); }
 .chroma .nx { color: rgb(var(--accent-rgb)); }
 .chroma .nf { color: rgb(var(--accent-bright-rgb)); }
 .chroma .fm { color: rgb(var(--accent-bright-rgb)); }
-.chroma .nt { color: #f92672; }
+.chroma .nt { color: rgb(var(--hi-rgb)); }
 
-/* Strings — amber (matches secondary accent) */
-.chroma .l  { color: #ae81ff; }
-.chroma .ld { color: rgb(var(--amber-rgb)); }
-.chroma .s  { color: rgb(var(--amber-rgb)); }
-.chroma .sa { color: rgb(var(--amber-rgb)); }
-.chroma .sb { color: rgb(var(--amber-rgb)); }
-.chroma .sc { color: rgb(var(--amber-rgb)); }
-.chroma .dl { color: rgb(var(--amber-rgb)); }
-.chroma .sd { color: rgb(var(--amber-rgb)); }
-.chroma .s2 { color: rgb(var(--amber-rgb)); }
-.chroma .se { color: #ae81ff; }
-.chroma .sh { color: rgb(var(--amber-rgb)); }
-.chroma .si { color: rgb(var(--amber-rgb)); }
-.chroma .sx { color: rgb(var(--amber-rgb)); }
-.chroma .sr { color: rgb(var(--amber-rgb)); }
-.chroma .s1 { color: rgb(var(--amber-rgb)); }
-.chroma .ss { color: rgb(var(--amber-rgb)); }
+/* Strings — white */
+.chroma .l  { color: rgb(var(--hi-dim-rgb)); }
+.chroma .ld { color: rgb(var(--hi-rgb)); }
+.chroma .s  { color: rgb(var(--hi-rgb)); }
+.chroma .sa { color: rgb(var(--hi-rgb)); }
+.chroma .sb { color: rgb(var(--hi-rgb)); }
+.chroma .sc { color: rgb(var(--hi-rgb)); }
+.chroma .dl { color: rgb(var(--hi-rgb)); }
+.chroma .sd { color: rgb(var(--hi-rgb)); }
+.chroma .s2 { color: rgb(var(--hi-rgb)); }
+.chroma .se { color: rgb(var(--hi-bright-rgb)); }
+.chroma .sh { color: rgb(var(--hi-rgb)); }
+.chroma .si { color: rgb(var(--hi-bright-rgb)); }
+.chroma .sx { color: rgb(var(--hi-rgb)); }
+.chroma .sr { color: rgb(var(--hi-rgb)); }
+.chroma .s1 { color: rgb(var(--hi-rgb)); }
+.chroma .ss { color: rgb(var(--hi-rgb)); }
 
-/* Numbers — purple */
-.chroma .m  { color: #ae81ff; }
-.chroma .mb { color: #ae81ff; }
-.chroma .mf { color: #ae81ff; }
-.chroma .mh { color: #ae81ff; }
-.chroma .mi { color: #ae81ff; }
-.chroma .il { color: #ae81ff; }
-.chroma .mo { color: #ae81ff; }
+/* Numbers — dim white */
+.chroma .m  { color: rgb(var(--hi-dim-rgb)); }
+.chroma .mb { color: rgb(var(--hi-dim-rgb)); }
+.chroma .mf { color: rgb(var(--hi-dim-rgb)); }
+.chroma .mh { color: rgb(var(--hi-dim-rgb)); }
+.chroma .mi { color: rgb(var(--hi-dim-rgb)); }
+.chroma .il { color: rgb(var(--hi-dim-rgb)); }
+.chroma .mo { color: rgb(var(--hi-dim-rgb)); }
 
-/* Operators — pink/red */
-.chroma .o  { color: #f92672; }
-.chroma .ow { color: #f92672; }
+/* Operators — muted foreground */
+.chroma .o  { color: rgba(var(--fg-rgb), 0.7); }
+.chroma .ow { color: rgb(var(--accent-dim-rgb)); }
 
 /* Comments — muted */
-.chroma .c   { color: rgba(var(--fg-rgb), 0.4); font-style: italic; }
-.chroma .ch  { color: rgba(var(--fg-rgb), 0.4); font-style: italic; }
-.chroma .cm  { color: rgba(var(--fg-rgb), 0.4); font-style: italic; }
-.chroma .c1  { color: rgba(var(--fg-rgb), 0.4); font-style: italic; }
-.chroma .cs  { color: rgba(var(--fg-rgb), 0.4); font-style: italic; }
-.chroma .cp  { color: rgba(var(--fg-rgb), 0.4); }
-.chroma .cpf { color: rgba(var(--fg-rgb), 0.4); }
+.chroma .c   { color: rgba(var(--fg-rgb), 0.35); font-style: italic; }
+.chroma .ch  { color: rgba(var(--fg-rgb), 0.35); font-style: italic; }
+.chroma .cm  { color: rgba(var(--fg-rgb), 0.35); font-style: italic; }
+.chroma .c1  { color: rgba(var(--fg-rgb), 0.35); font-style: italic; }
+.chroma .cs  { color: rgba(var(--fg-rgb), 0.35); font-style: italic; }
+.chroma .cp  { color: rgba(var(--fg-rgb), 0.35); }
+.chroma .cpf { color: rgba(var(--fg-rgb), 0.35); }
 
 /* Diff */
-.chroma .gd { color: #f92672; }
+.chroma .gd { color: rgb(var(--hard-rgb)); }
 .chroma .ge { font-style: italic; }
 .chroma .gi { color: rgb(var(--accent-rgb)); }
 .chroma .gs { font-weight: bold; }

@@ -77,9 +77,9 @@ body {
     max-width: 90vw;
     margin: 64px;
     padding: 6% 10%;
-    border: 4px solid #fff;
-    color: #303030;
-    background: #fff;
+    border: 4px solid rgba(var(--fg-rgb), 1);
+    color: rgba(var(--bg-rgb), 1);
+    background: rgba(var(--fg-rgb), 1);
     text-align: center;
     vertical-align: middle;
     cursor: default;
@@ -91,11 +91,11 @@ body {
     font-family: "Fira Code";
     appearance: none;
     backface-visibility: hidden;
-    background: #303030;
+    background: rgba(var(--card-bg-rgb), 1);
     border-radius: 3px;
     border: none;
     box-shadow: inset 0 -100px 0 rgba(41, 41, 41, 0);
-    color: #fff;
+    color: rgba(var(--fg-rgb), 1);
     cursor: pointer;
     display: inline-block;
     font-size: 22px;
@@ -150,8 +150,8 @@ q {
 }
 
 p {
-    color: rgba(255, 255, 255, 0.8);
-    font-family: Fira Code, 'Helvetica Neue', 'Lucida Grande', Arial, Verdana, sans-serif;
+    color: rgba(var(--fg-rgb), 0.8);
+    font-family: "Fira Code", Monaco, Consolas, "Ubuntu Mono", monospace;
     font-size: 20px;
     line-height: 1.0;
     padding-bottom: 24px;
@@ -161,23 +161,23 @@ p {
 
 a {
     /*     color: rgba(63, 53, 53, 0.8); */
-    color: rgba(250, 250, 250, 0.8);
+    color: rgba(var(--fg-rgb), 0.8);
     cursor: pointer;
     text-decoration: none;
     transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1);
 }
 
 a:hover {
-    color: #fff !important;
+    color: rgba(var(--fg-rgb), 1) !important;
     opacity: 1;
     outline: none !important;
     text-decoration: none !important;
-    text-shadow: 0 0 1ex #fff, 0 0 4px #fff;
+    text-shadow: 0 0 1ex rgba(var(--fg-rgb), 1), 0 0 4px rgba(var(--fg-rgb), 0.6);
 }
 
 a:active,
 a:focus {
-    color: #fff;
+    color: rgba(var(--fg-rgb), 1);
     outline: none !important;
     text-decoration: none !important;
 }
@@ -204,7 +204,7 @@ video#bgvid {
     left: 0;
     width: 100%;
     height: 100%;
-    box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.75);
+    box-shadow: inset 0 0 120px rgba(var(--bg-rgb), 0.75);
 }
 
 #container .overlay {
@@ -212,7 +212,7 @@ video#bgvid {
     width: 100%;
     height: 100%;
     opacity: 0.25;
-    background: #000;
+    background: rgba(var(--bg-rgb), 1);
 }
 
 #container .item-title .link-bottom .link-icon {
@@ -258,18 +258,11 @@ video#bgvid {
 }
 
 #container .item-title #message p:nth-child(n+2) {
-    color: var(--accent);
-    text-shadow: 0 0 10px rgba(var(--accent-rgb), 0.4);
-    font-size: 20px;
+    color: rgba(var(--accent-rgb), 0.6);
+    text-shadow: 0 0 10px rgba(var(--accent-rgb), 0.2);
+    font-size: 18px;
     font-weight: 400;
-}
-
-#container .item-title #message p:last-child {
-    margin-bottom: 0px;
-    color: rgba(255, 255, 255, 0.5);
-    text-shadow: none;
-    font-size: 16px;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.1em;
 }
 
 #container .item-title .link-bottom {
@@ -417,7 +410,7 @@ video#bgvid {
         0 0 12px rgba(var(--accent-rgb), 0.7),
         0 0 30px rgba(var(--accent-rgb), 0.35),
         inset 0 0 8px rgba(var(--accent-rgb), 0.08);
-    color: #ffffff;
+    color: rgba(var(--fg-rgb), 1);
     text-decoration: none;
     text-shadow: 0 0 8px rgba(var(--accent-rgb), 0.8);
 }
