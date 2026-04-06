@@ -42,10 +42,13 @@
   --logo-size: 1.6rem;
   --menu-size: 1.2rem;
   --post-title-size: 1.8rem;
-  --post-content-size: 1.15rem;
-  --post-tag-size: 0.85rem;
-  --post-meta-size: 0.9rem;
-  --read-more-size: 0.8rem;
+  --post-content-size: 1.2rem;
+  --post-tag-size: 0.9rem;
+  --post-meta-size: 0.95rem;
+  --read-more-size: 0.85rem;
+  --post-h2-size: 1.85rem;
+  --post-h3-size: 1.45rem;
+  --post-h4-size: 1.2rem;
 
   /* Misc */
   --radius: 8px;
@@ -379,9 +382,13 @@ ul.navigation-menu__inner > li {
 /* Post content */
 .post-content {
   color: var(--foreground);
-  line-height: 1.6;
+  line-height: 1.75;
   margin: 1rem 0;
   font-size: var(--post-content-size);
+}
+
+.post-content p {
+  margin-bottom: 1.2rem;
 }
 
 /* Post tags */
@@ -480,7 +487,8 @@ ul.navigation-menu__inner > li {
   position: relative;
   color: var(--accent) !important;
   text-shadow: 0 0 8px rgba(var(--accent-rgb), 0.4);
-  margin-bottom: 1.5rem;
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
 }
 
 .post > .post-content {
@@ -491,18 +499,19 @@ ul.navigation-menu__inner > li {
 .post > .post-content h3 {
   color: var(--accent) !important;
   text-shadow: 0 0 6px rgba(var(--accent-rgb), 0.3);
-  margin-top: 2rem;
   margin-bottom: 0.75rem;
 }
 
 .post > .post-content h2 {
-  font-size: 1.4rem;
-  padding-bottom: 0.4rem;
-  border-bottom: 1px solid rgba(var(--accent-rgb), 0.15);
+  font-size: var(--post-h2-size);
+  margin-top: 3rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(var(--accent-rgb), 0.2);
 }
 
 .post > .post-content h3 {
-  font-size: 1.15rem;
+  font-size: var(--post-h3-size);
+  margin-top: 2.5rem;
 }
 
 /* Table of Contents — collapsible <details> */
@@ -623,15 +632,37 @@ ul.navigation-menu__inner > li {
   font-style: italic;
 }
 
-/* Code blocks */
-pre {
-  background: rgba(var(--card-bg-rgb), 1) !important;
-  border: 1px solid rgba(var(--accent-rgb), 0.15) !important;
-  border-left: 3px solid rgba(var(--accent-rgb), 0.4) !important;
-  border-radius: 4px !important;
-  padding: 1rem !important;
+/* Code blocks — .highlight is the outer container */
+.highlight {
+  background: #272822 !important;
+  border: 1px solid rgba(var(--accent-rgb), 0.25) !important;
+  border-left: 3px solid rgba(var(--accent-rgb), 0.5) !important;
+  border-radius: 6px !important;
+  margin: 1.75rem 0 !important;
+  overflow: hidden;
+}
+
+.highlight pre {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 1.25rem 1.5rem !important;
+  margin: 0 !important;
   overflow-x: auto;
-  font-size: 0.9rem !important;
+  font-size: 0.95rem !important;
+  line-height: 1.7;
+}
+
+pre:not(.chroma) {
+  background: #272822 !important;
+  border: 1px solid rgba(var(--accent-rgb), 0.25) !important;
+  border-left: 3px solid rgba(var(--accent-rgb), 0.5) !important;
+  border-radius: 6px !important;
+  padding: 1.25rem 1.5rem !important;
+  overflow-x: auto;
+  font-size: 0.95rem !important;
+  line-height: 1.7;
+  margin: 1.75rem 0;
 }
 
 pre code {
@@ -643,7 +674,7 @@ pre code {
 
 /* Inline code */
 code {
-  background: rgba(var(--accent-rgb), 0.06) !important;
+  background: rgba(var(--accent-rgb), 0.08) !important;
   border: 1px solid rgba(var(--accent-rgb), 0.15) !important;
   color: var(--accent) !important;
   padding: 0.1em 0.4em !important;
@@ -654,11 +685,18 @@ code {
 /* Line numbers in code blocks */
 .chroma .lntable {
   width: 100%;
+  border-spacing: 0;
 }
 
 .chroma .lntd:first-child {
   width: 2.5em;
-  border-right: 1px solid rgba(var(--accent-rgb), 0.1);
+  border-right: 1px solid rgba(var(--accent-rgb), 0.15);
+  user-select: none;
+}
+
+.chroma .lntd:first-child pre {
+  padding-right: 0.75em !important;
+  padding-left: 0.75em !important;
 }
 
 .chroma .lntd:last-child {
@@ -669,21 +707,27 @@ code {
 .post-content h2,
 .index-content h2 {
   color: var(--accent) !important;
+  font-size: var(--post-h2-size);
   border-bottom: 1px solid rgba(var(--accent-rgb), 0.2);
-  padding-bottom: 0.3rem;
-  margin-top: 2rem;
+  padding-bottom: 0.5rem;
+  margin-top: 3rem;
+  margin-bottom: 0.75rem;
 }
 
 .post-content h3,
 .index-content h3 {
   color: var(--accent-hi) !important;
-  margin-top: 1.5rem;
+  font-size: var(--post-h3-size);
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .post-content h4,
 .index-content h4 {
   color: rgba(var(--fg-rgb), 0.85) !important;
-  margin-top: 1.2rem;
+  font-size: var(--post-h4-size);
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 /* Strong/bold in posts — accent color for emphasis */
@@ -696,13 +740,15 @@ code {
 .post-content hr {
   border: none;
   border-top: 1px solid rgba(var(--accent-rgb), 0.15);
-  margin: 1.5rem 0;
+  margin: 2.5rem 0;
 }
 
 /* Lists */
 .index-content ul li,
-.post-content ul li {
-  line-height: 1.7;
+.index-content ol li,
+.post-content ul li,
+.post-content ol li {
+  line-height: 1.75;
   margin-bottom: 0.3rem;
 }
 
@@ -1049,9 +1095,28 @@ code {
 }
 
 
-/* Code block language labels — make more readable */
+/* Code block language label + copy button bar */
 .code-title {
-  color: rgba(var(--fg-rgb), 0.5);
+  background: rgba(var(--accent-rgb), 0.08) !important;
+  border-bottom: 1px solid rgba(var(--accent-rgb), 0.2) !important;
+  color: rgba(var(--accent-rgb), 0.7) !important;
+  font-size: 0.8rem !important;
+  padding: 0.4rem 1rem !important;
+  letter-spacing: 0.05em;
+}
+
+.code-title .copy-button {
+  background: rgba(var(--accent-rgb), 0.06) !important;
+  color: rgba(var(--accent-rgb), 0.6) !important;
+  border-color: rgba(var(--accent-rgb), 0.2) !important;
+  border-radius: 3px !important;
+  font-size: 0.75rem !important;
+  transition: all 0.2s ease;
+}
+
+.code-title .copy-button:hover {
+  background: rgba(var(--accent-rgb), 0.15) !important;
+  color: rgba(var(--accent-rgb), 0.9) !important;
 }
 
 /* --- Animations --- */
@@ -1156,9 +1221,29 @@ code {
     padding: 1rem;
   }
 
+  /* Scale down headings on mobile */
+  .post-single h1.post-title {
+    font-size: 1.9rem;
+  }
+
+  .post > .post-content h2,
+  .post-content h2,
+  .index-content h2 {
+    font-size: 1.45rem;
+    margin-top: 2.5rem;
+  }
+
+  .post > .post-content h3,
+  .post-content h3,
+  .index-content h3 {
+    font-size: 1.25rem;
+    margin-top: 2rem;
+  }
+
   /* Smaller code blocks on mobile */
-  pre {
-    font-size: 0.78rem !important;
+  .highlight pre,
+  pre:not(.chroma) {
+    font-size: 0.8rem !important;
     padding: 0.75rem !important;
   }
 
@@ -1187,4 +1272,41 @@ code {
 
   .dossier-field__key { min-width: unset; }
   .dossier-certs { grid-template-columns: 1fr; }
+}
+
+
+/* --- Post images & figures --- */
+
+.post-content img {
+  border: 1px solid rgba(var(--fg-rgb), 0.15);
+  border-radius: 4px;
+  max-width: 85%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+}
+
+.post-content figure {
+  width: 100%;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.post-content figure img {
+  margin: 0 auto 0.5rem;
+}
+
+.post-content figure figcaption {
+  background: transparent !important;
+  color: rgba(var(--fg-rgb), 0.5) !important;
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-top: 0.5rem !important;
+  padding: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .post-content img {
+    max-width: 100%;
+  }
 }

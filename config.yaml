@@ -20,6 +20,9 @@ PygmentsCodeFences: true
 PygmentsStyle: "monokai"
 
 markup:
+  goldmark:
+    renderer:
+      unsafe: true
   highlight:
     noClasses: false
     codeFences: true
