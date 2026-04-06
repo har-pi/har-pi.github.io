@@ -4,7 +4,7 @@ date: 2025-10-30
 description: "How fuzzing F3D's 3D file parser with a dictionary-based libFuzzer harness found four memory corruption vulnerabilities in VTK's GLTF document loader — two use-after-frees, a heap buffer overflow, and a buffer overread."
 tags: ["cve", "research", "fuzzing", "memory-corruption", "vtk", "gltf"]
 categories: ["vulnerability-research"]
-draft: true
+draft: false
 ---
 
 > *"The future is already here — it's just not evenly distributed."* — William Gibson
