@@ -7,12 +7,16 @@ $(window).load(function () {
             text: 'Harry Pantazis'
         });
         MESSAGES.push({
-            delay: 800,
-            text: '— Security Researcher;'
+            delay: 1200,
+            text: '- Security Researcher;'
         });
         MESSAGES.push({
-            delay: 1600,
-            text: '— Penetration Tester;'
+            delay: 2400,
+            text: '- Penetration Tester;'
+        });
+        MESSAGES.push({
+            delay: 3600,
+            text: '- ex-DevOps;'
         });
         $container = $('#container');
         $message = $('#message');
@@ -25,7 +29,7 @@ $(window).load(function () {
                 probability: 0.2,
                 glitches: '-|/\\',
                 blank: '',
-                duration: text.length * 40,
+                duration: text.length * 80,
                 ease: 'easeInOutQuad',
                 delay: 0
             };

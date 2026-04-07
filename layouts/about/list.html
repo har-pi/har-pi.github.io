@@ -8,6 +8,15 @@
     <span class="dossier-classbar__class">UNCLASSIFIED</span>
   </div>
 
+  {{/* ── Intro ── */}}
+  {{ with .Params.intro }}
+  <div class="dossier-block">
+    <div class="dossier-site-overview">
+      {{ . | markdownify }}
+    </div>
+  </div>
+  {{ end }}
+
   {{/* ── Profile section ── */}}
   <div class="dossier-profile">
     <div class="dossier-profile__image-wrap">
@@ -52,21 +61,6 @@
         <span class="dossier-cert__name">{{ .name }}</span>
       </div>
       {{ end }}
-      {{ end }}
-    </div>
-  </div>
-  {{ end }}
-
-  {{/* ── Operational Focus ── */}}
-  {{ with .Params.capabilities }}
-  <div class="dossier-block">
-    <div class="dossier-block__head">OPERATIONAL FOCUS</div>
-    <div class="dossier-ops">
-      {{ range . }}
-      <div class="dossier-op">
-        <span class="dossier-op__title">{{ .header }}</span>
-        <span class="dossier-op__detail">{{ .desc }}</span>
-      </div>
       {{ end }}
     </div>
   </div>

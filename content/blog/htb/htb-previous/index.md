@@ -25,11 +25,11 @@ PORT   STATE SERVICE VERSION
 |_http-title: Did not follow redirect to http://previous.htb/
 ```
 
-Two ports — SSH and an nginx reverse proxy redirecting to `previous.htb`. Adding that to `/etc/hosts` and visiting the site reveals **PreviousJS** — a documentation platform built on Next.js.
+Two ports - SSH and an nginx reverse proxy redirecting to `previous.htb`. Adding that to `/etc/hosts` and visiting the site reveals **PreviousJS** - a documentation platform built on Next.js.
 
 ### Enumeration
 
-The site serves a Next.js application with a docs section. The page source shows a build ID (`qVDR2cKpRgqCslEh-llk9`) and references to `/_next/static/` assets — confirming this is a standard Next.js deployment behind nginx.
+The site serves a Next.js application with a docs section. The page source shows a build ID (`qVDR2cKpRgqCslEh-llk9`) and references to `/_next/static/` assets - confirming this is a standard Next.js deployment behind nginx.
 
 Key observations:
 - Login state shown in top-right corner ("Logged in as ???")
@@ -40,7 +40,7 @@ Key observations:
 
 ## Exploitation
 
-### CVE-2025-29927 — Next.js Middleware Authentication Bypass
+### CVE-2025-29927 - Next.js Middleware Authentication Bypass
 
 The application uses Next.js middleware for authentication. [CVE-2025-29927](https://nvd.nist.gov/vuln/detail/CVE-2025-29927) allows bypassing middleware entirely by sending a crafted `X-Middleware-Subrequest` header that tricks Next.js into thinking the request is an internal subrequest.
 
@@ -50,7 +50,7 @@ The application uses Next.js middleware for authentication. [CVE-2025-29927](htt
 X-Middleware-Subrequest: middleware:middleware:middleware:middleware:middleware
 ```
 
-By appending this header to requests, all middleware-based authentication checks are skipped — granting access to protected routes without credentials.
+By appending this header to requests, all middleware-based authentication checks are skipped - granting access to protected routes without credentials.
 
 ### Local File Inclusion
 
@@ -60,7 +60,7 @@ With authentication bypassed, the `/api/download` endpoint becomes accessible. T
 GET /api/download?example=../../.next/server/pages/api/auth/[...nextauth].js
 ```
 
-![LFI via Burp Suite — extracting NextAuth configuration](images/lfi.png)
+![LFI via Burp Suite - extracting NextAuth configuration](images/lfi.png)
 
 This leaks the NextAuth configuration file, which contains hardcoded credentials:
 
@@ -94,7 +94,7 @@ User jeremy may run the following commands on previous:
     (root) /usr/bin/terraform -chdir=/opt/examples apply
 ```
 
-Jeremy can run `terraform apply` as root, but only from `/opt/examples`. The Terraform configuration there is not writable — but Terraform supports **provider dev overrides** via `~/.terraformrc`.
+Jeremy can run `terraform apply` as root, but only from `/opt/examples`. The Terraform configuration there is not writable - but Terraform supports **provider dev overrides** via `~/.terraformrc`.
 
 ### Terraform Provider Override
 
@@ -141,6 +141,6 @@ Root flag obtained.
 
 ## Key Takeaways
 
-- **CVE-2025-29927** is a critical middleware bypass in Next.js — any application relying solely on middleware for auth is vulnerable. The fix is upgrading Next.js and implementing server-side auth checks.
-- **Hardcoded credentials in source** — NextAuth config files should use environment variables, not inline secrets.
-- **Terraform dev overrides** — the `.terraformrc` file in a user's home directory can redirect provider resolution. If `terraform apply` runs as root, any user-controlled provider path becomes a privesc vector.
+- **CVE-2025-29927** is a critical middleware bypass in Next.js - any application relying solely on middleware for auth is vulnerable. The fix is upgrading Next.js and implementing server-side auth checks.
+- **Hardcoded credentials in source** - NextAuth config files should use environment variables, not inline secrets.
+- **Terraform dev overrides** - the `.terraformrc` file in a user's home directory can redirect provider resolution. If `terraform apply` runs as root, any user-controlled provider path becomes a privesc vector.

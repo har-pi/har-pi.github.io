@@ -98,7 +98,7 @@ body {
     color: rgba(var(--fg-rgb), 1);
     cursor: pointer;
     display: inline-block;
-    font-size: 22px;
+    font-size: var(--fs-lg);
     font-weight: 500;
     margin-bottom: 20px;
     outline: none;
@@ -152,7 +152,7 @@ q {
 p {
     color: rgba(var(--fg-rgb), 0.8);
     font-family: "Fira Code", Monaco, Consolas, "Ubuntu Mono", monospace;
-    font-size: 20px;
+    font-size: var(--fs-base);
     line-height: 1.0;
     padding-bottom: 24px;
     font-weight: 400;
@@ -248,7 +248,7 @@ video#bgvid {
 }
 
 #container .item-title #message p:first-child {
-    font-size: 96px;
+    font-size: var(--fs-hero);
     font-weight: 400;
     margin-top: 96px;
     margin-bottom: 20px;
@@ -260,7 +260,7 @@ video#bgvid {
 #container .item-title #message p:nth-child(n+2) {
     color: rgba(var(--accent-rgb), 0.6);
     text-shadow: 0 0 10px rgba(var(--accent-rgb), 0.2);
-    font-size: 18px;
+    font-size: var(--fs-lg);
     font-weight: 400;
     letter-spacing: 0.1em;
 }
@@ -342,12 +342,7 @@ video#bgvid {
     }
 
     #container .item-title #message p:first-child {
-        font-size: 32px;
         font-weight: 200;
-    }
-
-    #container .item-title #message p:nth-child(n+2) {
-        font-size: 16px;
     }
 
     #container .item-title #message {
@@ -390,7 +385,7 @@ video#bgvid {
     min-width: 200px;
     text-align: center;
     font-family: "Fira Code", monospace;
-    font-size: 1.2rem;
+    font-size: var(--fs-lg);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -426,7 +421,7 @@ video#bgvid {
 
     .landing-nav__link {
         min-width: auto;
-        font-size: 0.85rem;
+        font-size: var(--fs-sm);
         padding: 0.5rem 1rem;
     }
 }
