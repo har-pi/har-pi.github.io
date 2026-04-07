@@ -11,7 +11,7 @@ draft: false
 
 ## How I Got Here
 
-In mid-2025 I scoped out an engagement for [Radically Open Security](https://www.radicallyopensecurity.com/) targeting [F3D](https://f3d.app/) — a fast, minimalist 3D viewer that supports dozens of file formats — and its library counterpart, `libf3d`. The proposal focused on three attack surfaces:
+In late May 2025 I kicked off a seven-day engagement for [Radically Open Security](https://www.radicallyopensecurity.com/) targeting [F3D](https://f3d.app/) — a fast, minimalist 3D viewer that supports dozens of file formats — and its library counterpart, `libf3d`. The proposal focused on three attack surfaces:
 
 > Code audit and pentesting of `f3d` and `libf3d`.
 >
@@ -21,7 +21,7 @@ The scope broke down into three targets: the build system and dependency chain, 
 
 The proposal explicitly called out fuzzing campaigns for glTF, USD, and FBX under "Target 3: libf3d: File Parsing and API Security." glTF came first — it's the most widely used format in the set, JSON-based (which makes dictionary fuzzing effective), and VTK's implementation handles a complex web of interlinked structures that practically invites validation bugs.
 
-Six days of audit, one day of reporting. The fuzzing started on day one.
+Six days of audit, one day of reporting — May 30 through July 17, 2025. The fuzzing started on day one.
 
 * * *
 
@@ -374,7 +374,7 @@ As of this writing — nine months after disclosure — none of the fixes have b
 
 | Date | Event |
 |---|---|
-| 2025-06 | F3D engagement begins for Radically Open Security |
+| 2025-05-30 | F3D engagement begins for Radically Open Security |
 | 2025-06/07 | Fuzzer built, crashes discovered and triaged into 4 bug classes |
 | 2025-07 | Reported to Kitware via responsible disclosure |
 | 2025-07-17 | Issues opened publicly on VTK GitLab at Kitware's request ([#19732](https://gitlab.kitware.com/vtk/vtk/-/work_items/19732), [#19733](https://gitlab.kitware.com/vtk/vtk/-/work_items/19733), [#19734](https://gitlab.kitware.com/vtk/vtk/-/work_items/19734), [#19735](https://gitlab.kitware.com/vtk/vtk/-/work_items/19735), [#19736](https://gitlab.kitware.com/vtk/vtk/-/work_items/19736)) |
