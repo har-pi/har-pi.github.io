@@ -376,9 +376,6 @@ As of this writing - nine months after disclosure - none of the fixes have been 
 - [CVE-2025-57108](https://www.cve.org/CVERecord?id=CVE-2025-57108) - Use-After-Free
 - [CVE-2025-57109](https://www.cve.org/CVERecord?id=CVE-2025-57109) - Use-After-Free
 - [Snyk - VTK Vulnerabilities](https://security.snyk.io/package/unmanaged/https%3A%2F%2Fgitlab.kitware.com%7Cvtk%2Fvtk)
-- [CWE-120: Buffer Copy without Checking Size of Input](https://cwe.mitre.org/data/definitions/120.html)
-- [CWE-122: Heap-based Buffer Overflow](https://cwe.mitre.org/data/definitions/122.html)
-- [CWE-416: Use After Free](https://cwe.mitre.org/data/definitions/416.html)
 - [cgltf Fuzzing](https://deepwiki.com/jkuhlmann/cgltf/8.2-fuzzing) - the dictionary-based fuzzing approach that inspired this work
 - [glTF 2.0 Specification](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html)
 - [GitHub Advisory GHSA-5pfc-43r5-qrmg](https://github.com/advisories/GHSA-5pfc-43r5-qrmg) (CVE-2025-57106)

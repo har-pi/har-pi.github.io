@@ -7,11 +7,14 @@ draft: false
 
 ## Research Interests
 
-**Fuzzing & Binary**: Surfing the probabilistic state-space deterministically to find errors and inconsistencies. I am particularly interested in structured-input fuzzing for file parsers and protocol implementations. I also understand memory tagging exploits.
+### Fuzzing & Binary
+ Surfing the probabilistic state-space deterministically to find errors and inconsistencies. I am particularly interested in structured-input fuzzing for file parsers and protocol implementations. I also understand memory tagging exploits. [Thesis Description](https://cgi.di.uoa.gr/~thanassis/projects.html)
 
-**Embedded & Firmware**: My BSc thesis at the University of Athens focuses on smarter fuzzing for firmware - applying coverage feedback techniques to embedded targets that normally resist instrumentation. Automotive hardware seems interesting.
+### Embedded & Firmware
+ My BSc thesis at the University of Athens focuses on smarter fuzzing for firmware - applying coverage feedback techniques to embedded targets that normally resist instrumentation. Automotive hardware seems interesting.
 
-**Cloud & Red Teaming**
+### Cloud & Systems Engineering
+ Closer to real world scenarios. [Our course on Trustworthy Software Systems at DI UoA](https://www.di.uoa.gr/en/studies/undergraduate/courses/2991)
 
 ## Trophy Case
 1. [Django Allauth - Account Takeover via Provider Identifier Mutability](/blog/cves/django-allauth/)

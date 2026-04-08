@@ -18,10 +18,6 @@ The targets:
 - **kio-admin:** Privileged helper DBus communication flow, `admin://` protocol implementation and security
 - **kio:** KIO worker separation and isolation mechanisms, I/O code execution in privileged context
 
-Wayland on Linux only. The priorities I wrote upfront included environment variable manipulation, race conditions in C++ file operations, and privilege escalation paths.
-
-Race conditions were literally in the proposal. Sometimes you get lucky and the thing you're worried about is exactly the thing that breaks.
-
 I scoped this before [38C3](https://events.ccc.de/congress/2024/) and started hands-on-keyboard work in January 2025 after coming back from Hamburg. Five days of code audit and pentesting, one day of reporting.
 
 ## Background
@@ -259,7 +255,6 @@ The fix also guards against exploitation through Qt library path manipulation, a
 - [MR #1452 - Check that admin worker was installed by root](https://invent.kde.org/frameworks/kio/-/merge_requests/1452) (the original hardening commit)
 - [MR #1452 discussion - attack vector analysis](https://invent.kde.org/frameworks/kio/-/merge_requests/1452#note_791113) (Harald Sitter's attack chain outline)
 - [`onlyRootHasWriteAccess()` in worker.cpp](https://invent.kde.org/frameworks/kio/-/merge_requests/1452/diffs#29d10d0225e7406eb37abe6b5282c0d9972ad42e_317_326) (the vulnerable check)
-- [CWE-367: Time-of-check Time-of-use (TOCTOU) Race Condition](https://cwe.mitre.org/data/definitions/367.html)
 - [Race Conditions: Faster Attempts with RENAME_EXCHANGE](https://book.jorianwoltjer.com/binary-exploitation/race-conditions#faster-attempts---rename_exchange) - Jorian Woltjer
 - [QCoreApplication::libraryPaths()](https://doc.qt.io/qt-6/qcoreapplication.html#libraryPaths) - Qt 6 docs
 
